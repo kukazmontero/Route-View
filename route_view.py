@@ -15,6 +15,7 @@ from datetime import datetime
 import math
 import random
 
+
 # Configuración para utilizar api.zoomeye.hk
 class CustomZoomEye(ZoomEye):
     def __init__(self, api_key=None):
@@ -26,8 +27,6 @@ load_dotenv()
 
 # Configuración de credenciales
 ZOOMEYE_API_KEY = os.getenv('36D9F177-4798-977ca-3068-372ffa313cd')
-CENSYS_API_ID = os.getenv('6d77a3dc-28e7-4eb3-ba61-8e3ce9247d3d')
-CENSYS_API_KEY = os.getenv('nQv7wa71T87i6QwHTtUPLeBhD78GD2XW')
 
 # Configuración de argumentos
 parser = argparse.ArgumentParser(description="Script para replicar el algoritmo MDA de Scamper usando Scapy")
@@ -47,7 +46,7 @@ PORT_RANGE_START = 33434
 PORT_RANGE_END = 33439
 max_ttl = 30  # Máximo número de saltos
 probes_per_ttl = 3  # Número de probes por cada TTL
-CONSECUTIVE_FAILURE_THRESHOLD = 3  # Umbral de fallos consecutivos
+CONSECUTIVE_FAILURE_THRESHOLD = 5  # Umbral de fallos consecutivos
 
 def calculate_probes_needed(confidence, success_rate):
     if success_rate <= 0:
@@ -265,12 +264,11 @@ def run_all_protocols(target):
 
     return best_protocol, best_result, results
 
-# Función para obtener datos de Censys usando su API
 def get_censys_data(ip):
     try:
-        h = CensysHosts(api_id=CENSYS_API_ID, api_secret=CENSYS_API_KEY)
-        query = h.view(ip)
-        return query
+        h = CensysHosts()
+        host = h.view(ip)
+        return host
     except Exception as e:
         print(f"Error obteniendo datos de Censys para IP {ip}: {e}")
         return {}
