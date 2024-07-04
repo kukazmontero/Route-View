@@ -64,9 +64,12 @@ def trace_mda_icmp(target):
     while ttl <= MAX_HOPS and not destination_reached:
         hops = set()
         success_count = 0
+        probes_sent = 0
 
-        for probe_num in range(MAX_PROBES):
+        while probes_sent < MAX_PROBES:
             reply = send_probe_icmp(target, ttl)
+            probes_sent += 1
+
             if reply is not None:
                 if reply.haslayer(ICMP) and reply.getlayer(ICMP).type == 0:  # ICMP Echo Reply
                     routes.append({"ttl": ttl, "hops": [reply.src]})
@@ -78,6 +81,12 @@ def trace_mda_icmp(target):
                 elif reply.haslayer(ICMP) and reply.getlayer(ICMP).type == 11:  # ICMP Time Exceeded
                     hops.add(reply.src)
                     success_count += 1
+
+            # Ajustar el número de probes necesarios dinámicamente
+            success_rate = success_count / probes_sent
+            probes_needed = calculate_probes_needed(CONFIDENCE_LEVEL, success_rate)
+            if success_count >= probes_needed:
+                break
 
         if destination_reached:
             break
@@ -96,8 +105,6 @@ def trace_mda_icmp(target):
             for previous_hop in routes[-2]["hops"]:
                 connections.setdefault(previous_hop, []).extend(list(hops))
 
-        success_rate = success_count / MAX_PROBES
-        probes_needed = calculate_probes_needed(CONFIDENCE_LEVEL, success_rate)
         print(f"TTL {ttl} alcanzado en {list(hops)}")
 
         ttl += 1
