@@ -23,7 +23,7 @@ PORT_RANGE_START = 33434
 PORT_RANGE_END = 33439
 max_ttl = 30  # Máximo número de saltos
 probes_per_ttl = 3  # Número de probes por cada TTL
-CONSECUTIVE_FAILURE_THRESHOLD = 3  # Umbral de fallos consecutivos
+CONSECUTIVE_FAILURE_THRESHOLD = 5  # Umbral de fallos consecutivos
 
 def calculate_probes_needed(confidence, success_rate):
     if success_rate <= 0:
