@@ -3,6 +3,7 @@ import sys
 import argparse
 import json
 import time
+import requests
 from scapy.all import *
 from scapy.layers.inet import ICMP, UDP, IP, TCP
 import nmap
@@ -14,6 +15,7 @@ from zoomeye.sdk import ZoomEye
 from datetime import datetime
 import math
 import random
+from pythonping import ping
 
 
 # Configuración para utilizar api.zoomeye.hk
@@ -23,10 +25,11 @@ class CustomZoomEye(ZoomEye):
         self.api_base = "https://api.zoomeye.hk"
 
 # Cargar variables de entorno
-load_dotenv()
+#load_dotenv()
 
 # Configuración de credenciales
 ZOOMEYE_API_KEY = os.getenv('36D9F177-4798-977ca-3068-372ffa313cd')
+#IPINFO_ACCESS_TOKEN = os.getenv('f6b8889a44e63b')
 
 # Configuración de argumentos
 parser = argparse.ArgumentParser(description="Script para replicar el algoritmo MDA de Scamper usando Scapy")
@@ -43,7 +46,6 @@ MAX_HOPS = 30
 TIMEOUT = 2
 INTERVAL = 10  # Intervalo entre modalidades (ICMP, UDP y TCP)
 PORT_RANGE_START = 33434
-PORT_RANGE_END = 33439
 max_ttl = 30  # Máximo número de saltos
 probes_per_ttl = 3  # Número de probes por cada TTL
 CONSECUTIVE_FAILURE_THRESHOLD = 5  # Umbral de fallos consecutivos
@@ -83,17 +85,22 @@ def trace_mda_icmp(target):
     connections = {}
     destination_reached = False
     consecutive_failures = 0
+    probes_sent = 0
+    success_count = 0
 
     while ttl <= MAX_HOPS and not destination_reached:
         hops = set()
-        success_count = 0
-        probes_sent = 0
+        ttl_probes_sent = 0
+        ttl_success_count = 0
 
-        while probes_sent < MAX_PROBES:
+        while ttl_probes_sent < MAX_PROBES:
             reply = send_probe_icmp(target, ttl)
+            ttl_probes_sent += 1
             probes_sent += 1
 
             if reply is not None:
+                ttl_success_count += 1
+                success_count += 1
                 if reply.haslayer(ICMP) and reply.getlayer(ICMP).type == 0:  # ICMP Echo Reply
                     routes.append({"ttl": ttl, "hops": [reply.src]})
                     if ttl > 1 and len(routes) > 1 and routes[-2]["hops"]:
@@ -103,12 +110,10 @@ def trace_mda_icmp(target):
                     break
                 elif reply.haslayer(ICMP) and reply.getlayer(ICMP).type == 11:  # ICMP Time Exceeded
                     hops.add(reply.src)
-                    success_count += 1
 
-            # Ajustar el número de probes necesarios dinámicamente
-            success_rate = success_count / probes_sent
+            success_rate = ttl_success_count / ttl_probes_sent
             probes_needed = calculate_probes_needed(CONFIDENCE_LEVEL, success_rate)
-            if success_count >= probes_needed:
+            if ttl_success_count >= probes_needed:
                 break
 
         if destination_reached:
@@ -132,31 +137,35 @@ def trace_mda_icmp(target):
 
         ttl += 1
 
-    return routes, connections
+    packet_loss = calculate_packet_loss(probes_sent, success_count)
+    return routes, connections, packet_loss
+
+def explore_paths(dest_ip, ttl, dport, max_probes):
+    paths = {}
+    for probe in range(max_probes):
+        sport = random.randint(33434, 33534)
+        reply = send_probe_udp(dest_ip, ttl, sport, dport)
+        if reply:
+            if reply.src not in paths:
+                paths[reply.src] = 1
+            else:
+                paths[reply.src] += 1
+    return paths
 
 def trace_mda_udp(dest_ip):
-    def explore_paths(dest_ip, ttl, dport, max_probes, max_paths):
-        paths = {}
-        for probe in range(max_probes):
-            sport = random.randint(33434, 33534)
-            reply = send_probe_udp(dest_ip, ttl, sport, dport)
-            if reply:
-                if reply.src not in paths:
-                    paths[reply.src] = 1
-                else:
-                    paths[reply.src] += 1
-        return paths
-
     ttl = TTL_START
     routes = []
     connections = {}
     destination_reached = False
     consecutive_failures = 0
+    probes_sent = 0
+    success_count = 0
 
     while ttl <= max_ttl and not destination_reached:
-        paths = explore_paths(dest_ip, ttl, PORT_RANGE_START, probes_per_ttl, MAX_PROBES)
+        paths = explore_paths(dest_ip, ttl, PORT_RANGE_START, probes_per_ttl)
         hops = list(paths.keys())
-        success_count = len(hops)
+        success_count += len(hops)
+        probes_sent += probes_per_ttl
 
         if dest_ip in hops:
             destination_reached = True
@@ -176,13 +185,12 @@ def trace_mda_udp(dest_ip):
             for previous_hop in routes[-2]["hops"]:
                 connections.setdefault(previous_hop, []).extend(hops)
 
-        success_rate = success_count / probes_per_ttl
-        probes_needed = calculate_probes_needed(CONFIDENCE_LEVEL, success_rate)
         print(f"TTL {ttl} alcanzado en {hops}")
 
         ttl += 1
 
-    return routes, connections
+    packet_loss = calculate_packet_loss(probes_sent, success_count)
+    return routes, connections, packet_loss
 
 def trace_mda_tcp(target_ip):
     ttl = TTL_START
@@ -190,19 +198,26 @@ def trace_mda_tcp(target_ip):
     connections = {}
     destination_reached = False
     consecutive_failures = 0
+    probes_sent = 0
+    success_count = 0
 
     while ttl <= max_ttl and not destination_reached:
         hops = set()
-        success_count = 0
+        ttl_probes_sent = 0
+        ttl_success_count = 0
 
         for _ in range(probes_per_ttl):
             reply = send_probe_tcp(target_ip, ttl, PORT_RANGE_START)
+            ttl_probes_sent += 1
+            probes_sent += 1
+
             if reply is not None:
+                ttl_success_count += 1
+                success_count += 1
                 if reply.haslayer(ICMP):
                     icmp_type = reply.getlayer(ICMP).type
                     if icmp_type == 11:  # Time-to-live exceeded
                         hops.add(reply.src)
-                        success_count += 1
                     elif icmp_type == 3:  # Destination unreachable
                         hops.add(reply.src)
                         print(f"Destination unreachable from {reply.src}")
@@ -231,13 +246,17 @@ def trace_mda_tcp(target_ip):
             for previous_hop in routes[-2]["hops"]:
                 connections.setdefault(previous_hop, []).extend(hops)
 
-        success_rate = success_count / probes_per_ttl
-        probes_needed = calculate_probes_needed(CONFIDENCE_LEVEL, success_rate)
         print(f"TTL {ttl} alcanzado en {hops}")
 
         ttl += 1
 
-    return routes, connections
+    packet_loss = calculate_packet_loss(probes_sent, success_count)
+    return routes, connections, packet_loss
+
+def calculate_packet_loss(probes_sent, success_count):
+    if probes_sent == 0:
+        return 0.0
+    return ((probes_sent - success_count) / probes_sent) * 100
 
 def run_all_protocols(target):
     results = {}
@@ -249,11 +268,11 @@ def run_all_protocols(target):
             time.sleep(INTERVAL)
         print(f"Ejecutando protocolo: {protocol}")
         if protocol == "icmp":
-            routes, connections = trace_mda_icmp(target)
+            routes, connections, packet_loss = trace_mda_icmp(target)
         elif protocol == "udp":
-            routes, connections = trace_mda_udp(target)
+            routes, connections, packet_loss = trace_mda_udp(target)
         elif protocol == "tcp":
-            routes, connections = trace_mda_tcp(target)
+            routes, connections, packet_loss = trace_mda_tcp(target)
         total_hops = len(routes)
         total_ips = sum(1 for route in routes if route["hops"])
         results[protocol] = {
@@ -261,15 +280,46 @@ def run_all_protocols(target):
             "connections": connections,
             "total_ips": total_ips,
             "total_hops": total_hops,
-            "efficiency": total_ips / total_hops if total_hops > 0 else 0
+            "efficiency": total_ips / total_hops if total_hops > 0 else 0,
+            "packet_loss": packet_loss
         }
-        print(f"Protocolo: {protocol}, Total IPs: {total_ips}, Total Hops: {total_hops}, Eficiencia: {results[protocol]['efficiency']}")
+        print(f"Protocolo: {protocol}, Total IPs: {total_ips}, Total Hops: {total_hops}, Eficiencia: {results[protocol]['efficiency']}, Pérdida de Paquetes: {packet_loss}%")
     
     # Seleccionar el protocolo con la mejor eficiencia (total_ips / total_hops)
     best_protocol = max(results.keys(), key=lambda p: results[p]["efficiency"])
     best_result = results[best_protocol]
 
     return best_protocol, best_result, results
+
+def get_geo_info(ip):
+    url = f"https://ipinfo.io/{ip}/json?token={"f6b8889a44e63b"}"
+    try:
+        response = requests.get(url)
+        data = response.json()
+        if "loc" in data:
+            loc = data["loc"].split(',')
+            return {"latitude": loc[0], "longitude": loc[1]}
+        return {}
+    except Exception as e:
+        print(f"Error obteniendo datos geográficos para IP {ip}: {e}")
+        return {}
+
+def ping_ip(ip, count=10):
+    try:
+        response = ping(ip, count=count, verbose=True)
+        return parse_ping_output(response)
+    except Exception as e:
+        print(f"Error ejecutando ping para IP {ip}: {e}")
+        return {}
+
+def parse_ping_output(response):
+    latencies = [result.time_elapsed_ms for result in response if result.success]
+    if latencies:
+        avg_latency = sum(latencies) / len(latencies)
+        jitter_max = max(latencies)
+        jitter_min = min(latencies)
+        return {"avg_latency": avg_latency, "jitter_max": jitter_max, "jitter_min": jitter_min}
+    return {}
 
 def get_censys_data(ip):
     try:
@@ -342,16 +392,19 @@ def get_whois_data(ip):
 
 def get_osint_data(ip_list):
     osint_results = {}
+    geo_info = {}
     for ip in ip_list:
         censys_data = get_censys_data(ip)
         zoomeye_data = get_zoomeye_data(ip)
         nmap_data = get_nmap_data(ip)
         whois_data = get_whois_data(ip)
+        geo_info[ip] = get_geo_info(ip)
         osint_results[ip] = {
             "censys": censys_data,
             "zoomeye": zoomeye_data,
             "nmap": nmap_data,
-            "whois": whois_data
+            "whois": whois_data,
+            "geo": geo_info[ip]
         }
     return osint_results
 
@@ -368,9 +421,17 @@ if __name__ == "__main__":
         last_hops = [route["hops"] for route in best_result["routes"] if route["hops"]]
         unique_ips = set(ip for sublist in last_hops for ip in sublist)
         
+        # Obtener datos de OSINT y geográficos
         osint_results = get_osint_data(unique_ips)
+
+        # Ejecutar ping para calcular latencia y jitter solo hacia el destino
+        ping_results = ping_ip(args.target, count=50)
+
+        # Agregar información de balanceo de carga
+        results["best_result"]["load_balancing"] = len(best_result["connections"])
         
         results["osint"] = osint_results
+        results["ping"] = ping_results
 
         final_results = {args.target: results}
 
@@ -379,8 +440,13 @@ if __name__ == "__main__":
 
     finally:
         if args.output:
-            with open(args.output, 'w') as f:
+            output_path = os.path.join('output', args.output)
+            with open(output_path, 'w') as f:
                 json.dump(final_results, f, indent=4, default=str)
-            print(f"Resultados guardados en {args.output}")
+            print(f"Resultados guardados en {output_path}")
         else:
             print(json.dumps(final_results, indent=4, default=str))
+
+        # Llamar al script de consolidación de JSON
+        print("Ejecutando el script de consolidación de JSON...")
+        subprocess.run([sys.executable, 'consolidate_json.py'])
