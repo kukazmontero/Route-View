@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <style>
+        #map {
+            height: 600px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Resultados de la Ruta</h1>
+    <div id="metrics">
+        <h2>Métricas</h2>
+        <p><strong>Target:</strong> <span id="target"></span></p>
+        <p><strong>Protocolo:</strong> <span id="protocol"></span></p>
+        <p><strong>Total de IPs:</strong> <span id="total_ips"></span></p>
+        <p><strong>Total de Hops:</strong> <span id="total_hops"></span></p>
+        <p><strong>Eficiencia:</strong> <span id="efficiency"></span></p>
+        <p><strong>Pérdida de Paquetes:</strong> <span id="packet_loss"></span></p>
+        <p><strong>Balanceo de Carga:</strong> <span id="load_balancing"></span></p>
+        <h3>Ping</h3>
+        <p><strong>Latencia Promedio:</strong> <span id="avg_latency"></span></p>
+        <p><strong>Jitter Máximo:</strong> <span id="jitter_max"></span></p>
+        <p><strong>Jitter Mínimo:</strong> <span id="jitter_min"></span></p>
+    </div>
+    <div id="map"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('/data')
+                .then(response => response.json())
+                .then(data => {
+                    const mainKey = Object.keys(data)[0];
+                    const bestResult = data[mainKey].best_result;
+                    const ping = data[mainKey].ping;
+
+                    document.getElementById('target').innerText = mainKey;
+                    document.getElementById('protocol').innerText = data[mainKey].best_protocol;
+                    document.getElementById('total_ips').innerText = bestResult.total_ips;
+                    document.getElementById('total_hops').innerText = bestResult.total_hops;
+                    document.getElementById('efficiency').innerText = bestResult.efficiency;
+                    document.getElementById('packet_loss').innerText = bestResult.packet_loss;
+                    document.getElementById('load_balancing').innerText = bestResult.load_balancing;
+                    document.getElementById('avg_latency').innerText = ping.avg_latency;
+                    document.getElementById('jitter_max').innerText = ping.jitter_max;
+                    document.getElementById('jitter_min').innerText = ping.jitter_min;
+
+                    const mapDiv = document.getElementById('map');
+                    const iframe = document.createElement('iframe');
+                    iframe.src = "/static/generated_map.html";
+                    iframe.width = "100%";
+                    iframe.height = "600px";
+                    iframe.style.border = "none";
+                    mapDiv.appendChild(iframe);
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        });
+    </script>
+</body>
+</html>

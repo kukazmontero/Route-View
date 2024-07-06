@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Route View</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Route View</h1>
+    <form action="/" method="post">
+        <label for="target">Target:</label>
+        <input type="text" id="target" name="target" required>
+        <button type="submit">Run</button>
+    </form>
+</body>
+</html>

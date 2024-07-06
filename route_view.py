@@ -394,6 +394,7 @@ def get_osint_data(ip_list):
     osint_results = {}
     geo_info = {}
     for ip in ip_list:
+        print("Osint de ",ip)
         censys_data = get_censys_data(ip)
         zoomeye_data = get_zoomeye_data(ip)
         nmap_data = get_nmap_data(ip)
