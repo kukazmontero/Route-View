@@ -8,26 +8,49 @@
     <style>
         #map {
             height: 600px;
-            width: 100%;
+            width: 95%;
         }
+        .routes {
+            margin: 20px 0;
+        }
+        .ip-details {
+            display: none;
+            margin: 20px 0;
+        }
+        
     </style>
 </head>
 <body>
-    <h1>Resultados de la Ruta</h1>
+    <h1>Resultados</h1>
     <div id="metrics">
         <h2>Métricas</h2>
-        <p><strong>Target:</strong> <span id="target"></span></p>
+        <p><strong>Destino:</strong> <span id="target"></span></p>
         <p><strong>Protocolo:</strong> <span id="protocol"></span></p>
-        <p><strong>Total de IPs:</strong> <span id="total_ips"></span></p>
+        <p><strong>Total de IPs detectadas:</strong> <span id="total_ips"></span></p>
         <p><strong>Total de Hops:</strong> <span id="total_hops"></span></p>
         <p><strong>Eficiencia:</strong> <span id="efficiency"></span></p>
-        <p><strong>Pérdida de Paquetes:</strong> <span id="packet_loss"></span></p>
-        <p><strong>Balanceo de Carga:</strong> <span id="load_balancing"></span></p>
-        <h3>Ping</h3>
+        <p><strong>Pérdida de paquetes:</strong> <span id="packet_loss"></span></p>
+        <p><strong>Balanceo de carga:</strong> <span id="load_balancing"></span></p>
+        <p><strong>Diversidad de rutas:</strong> <span id="route_diversity"></span></p>
+        <h2>Latencia</h2>
         <p><strong>Latencia Promedio:</strong> <span id="avg_latency"></span></p>
         <p><strong>Jitter Máximo:</strong> <span id="jitter_max"></span></p>
         <p><strong>Jitter Mínimo:</strong> <span id="jitter_min"></span></p>
     </div>
+    
+    <div class="routes">
+        <h2>Rutas Posibles</h2>
+        <select id="route_select">
+            <option value="" selected disabled>Selecciona una ruta</option>
+        </select>
+        <ul id="route_list"></ul>
+    </div>
+    
+    <div class="ip-details" id="ip_details">
+        <h3>Detalles de <span id="selected_ip"></span></h3>
+        <div id="ip_info"></div>
+    </div>
+
     <div id="map"></div>
 
     <script>
@@ -37,28 +60,98 @@
                 .then(data => {
                     const mainKey = Object.keys(data)[0];
                     const bestResult = data[mainKey].best_result;
+                    const allPossibleRoutes = data[mainKey].all_possible_routes;
                     const ping = data[mainKey].ping;
+                    const osint = data[mainKey].osint;
 
                     document.getElementById('target').innerText = mainKey;
                     document.getElementById('protocol').innerText = data[mainKey].best_protocol;
                     document.getElementById('total_ips').innerText = bestResult.total_ips;
                     document.getElementById('total_hops').innerText = bestResult.total_hops;
-                    document.getElementById('efficiency').innerText = bestResult.efficiency;
-                    document.getElementById('packet_loss').innerText = bestResult.packet_loss;
+                    document.getElementById('efficiency').innerText = (bestResult.efficiency * 100).toFixed(2) + '%';
+                    document.getElementById('packet_loss').innerText = bestResult.packet_loss.toFixed(2) + '%';
                     document.getElementById('load_balancing').innerText = bestResult.load_balancing;
-                    document.getElementById('avg_latency').innerText = ping.avg_latency;
-                    document.getElementById('jitter_max').innerText = ping.jitter_max;
-                    document.getElementById('jitter_min').innerText = ping.jitter_min;
+                    document.getElementById('route_diversity').innerText = bestResult.route_diversity;
+                    document.getElementById('avg_latency').innerText = ping.avg_latency.toFixed(2) + ' ms';
+                    document.getElementById('jitter_max').innerText = ping.jitter_max.toFixed(2) + ' ms';
+                    document.getElementById('jitter_min').innerText = ping.jitter_min.toFixed(2) + ' ms';
 
-                    const mapDiv = document.getElementById('map');
-                    const iframe = document.createElement('iframe');
-                    iframe.src = "/static/generated_map.html";
-                    iframe.width = "100%";
-                    iframe.height = "600px";
-                    iframe.style.border = "none";
-                    mapDiv.appendChild(iframe);
-                })
-                .catch(error => console.error('Error fetching data:', error));
+                    const routeSelect = document.getElementById('route_select');
+                    allPossibleRoutes.forEach((route, index) => {
+                        const option = document.createElement('option');
+                        option.value = index;
+                        option.textContent = `Ruta ${index + 1}`;
+                        routeSelect.appendChild(option);
+                    });
+
+                    routeSelect.addEventListener('change', function() {
+                        const selectedRouteIndex = routeSelect.value;
+                        const selectedRoute = allPossibleRoutes[selectedRouteIndex];
+
+                        const routeList = document.getElementById('route_list');
+                        routeList.innerHTML = '';
+                        selectedRoute.forEach((ip, ttl) => {
+                            const listItem = document.createElement('li');
+                            listItem.textContent = `TTL ${ttl + 1}: ${ip || '?'}`;
+                            listItem.setAttribute('data-ip', ip);
+                            listItem.addEventListener('click', function() {
+                                displayIpInfo(ip);
+                            });
+                            routeList.appendChild(listItem);
+                        });
+
+                        fetch('/update_map', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify({ selected_route: selectedRoute }),
+                        })
+                        .then(response => response.json())
+                        .then(result => {
+                            if (result.status === 'success') {
+                                document.getElementById('map').innerHTML = `<iframe src="/static/generated_map.html" width="100%" height="600px"></iframe>`;
+                            } else {
+                                alert('Error al actualizar el mapa: ' + result.message);
+                            }
+                        });
+                    });
+
+                    function displayIpInfo(ip) {
+                        const ipInfoDiv = document.getElementById('ip_info');
+                        document.getElementById('selected_ip').innerText = ip || '?';
+                        if (!ip || !osint[ip]) {
+                            ipInfoDiv.innerHTML = 'No hay información disponible para esta IP.';
+                            return;
+                        }
+                        const ipInfo = osint[ip];
+                        ipInfoDiv.innerHTML = '';
+                        const displayedKeys = new Set();
+                        for (const [key, value] of Object.entries(ipInfo)) {
+                            if (displayedKeys.has(key) || !value) continue;
+                            if (key === 'open_ports' && Array.isArray(value) && value.length > 0) {
+                                const openPortsInfo = value.map(port => `${port.port}: ${port.service}`).join(', ');
+                                ipInfoDiv.innerHTML += `<strong>Open Ports:</strong> ${openPortsInfo}<br>`;
+                            } else if (key !== 'open_ports' && Array.isArray(value)) {
+                                ipInfoDiv.innerHTML += `<strong>${key}:</strong> ${value.join(', ')}<br>`;
+                            } else if (typeof value === 'object') {
+                                for (const [subKey, subValue] of Object.entries(value)) {
+                                    if (displayedKeys.has(subKey) || !subValue) continue;
+                                    if (Array.isArray(subValue)) {
+                                        ipInfoDiv.innerHTML += `<strong>${subKey}:</strong> ${subValue.join(', ')}<br>`;
+                                    } else {
+                                        ipInfoDiv.innerHTML += `<strong>${subKey}:</strong> ${subValue}<br>`;
+                                    }
+                                    displayedKeys.add(subKey);
+                                }
+                            } else if (key !== 'open_ports') {
+                                ipInfoDiv.innerHTML += `<strong>${key}:</strong> ${value}<br>`;
+                            }
+                            displayedKeys.add(key);
+                        }
+                        document.querySelector('.ip-details').style.display = 'block';
+                    }
+                });
         });
     </script>
 </body>

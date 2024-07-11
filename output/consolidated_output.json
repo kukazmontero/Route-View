@@ -1,6 +1,6 @@
 {
-    "130.104.228.159": {
-        "best_protocol": "udp",
+    "8.8.8.8": {
+        "best_protocol": "icmp",
         "best_result": {
             "routes": [
                 {
@@ -24,81 +24,31 @@
                 {
                     "ttl": 4,
                     "hops": [
-                        "10.50.3.22"
+                        "10.50.3.10"
                     ]
                 },
                 {
                     "ttl": 5,
                     "hops": [
-                        "213.140.39.160"
+                        "72.14.243.170"
                     ]
                 },
                 {
                     "ttl": 6,
-                    "hops": []
+                    "hops": [
+                        "172.253.69.33"
+                    ]
                 },
                 {
                     "ttl": 7,
-                    "hops": []
+                    "hops": [
+                        "72.14.237.169"
+                    ]
                 },
                 {
                     "ttl": 8,
                     "hops": [
-                        "171.75.8.23"
-                    ]
-                },
-                {
-                    "ttl": 9,
-                    "hops": [
-                        "171.75.8.23"
-                    ]
-                },
-                {
-                    "ttl": 10,
-                    "hops": [
-                        "212.133.24.90"
-                    ]
-                },
-                {
-                    "ttl": 11,
-                    "hops": [
-                        "193.191.3.86"
-                    ]
-                },
-                {
-                    "ttl": 12,
-                    "hops": [
-                        "193.191.3.86"
-                    ]
-                },
-                {
-                    "ttl": 13,
-                    "hops": []
-                },
-                {
-                    "ttl": 14,
-                    "hops": []
-                },
-                {
-                    "ttl": 15,
-                    "hops": []
-                },
-                {
-                    "ttl": 16,
-                    "hops": [
-                        "130.104.230.56"
-                    ]
-                },
-                {
-                    "ttl": 17,
-                    "hops": [
-                        "130.104.230.56"
-                    ]
-                },
-                {
-                    "ttl": 18,
-                    "hops": [
-                        "130.104.228.159"
+                        "8.8.8.8"
                     ]
                 }
             ],
@@ -110,35 +60,225 @@
                     "10.50.3.9"
                 ],
                 "10.50.3.9": [
-                    "10.50.3.22"
+                    "10.50.3.10"
                 ],
-                "10.50.3.22": [
-                    "213.140.39.160"
+                "10.50.3.10": [
+                    "72.14.243.170"
                 ],
-                "213.140.39.160": [],
-                "171.75.8.23": [
-                    "171.75.8.23",
-                    "212.133.24.90"
+                "72.14.243.170": [
+                    "172.253.69.33"
                 ],
-                "212.133.24.90": [
-                    "193.191.3.86"
+                "172.253.69.33": [
+                    "72.14.237.169"
                 ],
-                "193.191.3.86": [
-                    "193.191.3.86"
-                ],
-                "130.104.230.56": [
-                    "130.104.230.56",
-                    "130.104.228.159"
+                "72.14.237.169": [
+                    "8.8.8.8"
                 ]
             },
-            "total_ips": 13,
-            "total_hops": 18,
-            "efficiency": 0.7222222222222222,
-            "packet_loss": 75.92592592592592,
-            "load_balancing": 9
+            "total_ips": 8,
+            "total_hops": 8,
+            "efficiency": 1.0,
+            "packet_loss": 0.0,
+            "all_possible_routes": [
+                [
+                    "192.168.1.1",
+                    "190.22.160.1",
+                    "10.50.3.9",
+                    "10.50.3.10",
+                    "72.14.243.170",
+                    "172.253.69.33",
+                    "72.14.237.169",
+                    "8.8.8.8"
+                ]
+            ],
+            "load_balancing": 1,
+            "route_diversity": "bajo"
         },
         "osint": {
-            "192.168.1.1": {
+            "72.14.237.169": {
+                "latitude": "-33.4569",
+                "longitude": "-70.6483",
+                "city": "Santiago",
+                "country": "Chile",
+                "province": "Santiago Metropolitan",
+                "asn": 15169,
+                "asn_description": "GOOGLE",
+                "bgp_prefix": "72.14.192.0/18",
+                "asn_name": "GOOGLE",
+                "open_ports": [],
+                "os": null,
+                "mac_address": null,
+                "whois": {
+                    "domain_name": null,
+                    "registrar": null,
+                    "whois_server": null,
+                    "referral_url": null,
+                    "updated_date": null,
+                    "creation_date": null,
+                    "expiration_date": null,
+                    "name_servers": null,
+                    "status": null,
+                    "emails": [
+                        "arin-contact@google.com",
+                        "network-abuse@google.com"
+                    ],
+                    "dnssec": null,
+                    "name": null,
+                    "org": null,
+                    "address": null,
+                    "city": null,
+                    "state": null,
+                    "registrant_postal_code": null,
+                    "country": null
+                }
+            },
+            "172.253.69.33": {
+                "latitude": "-33.4569",
+                "longitude": "-70.6483",
+                "city": "Santiago",
+                "country": "Chile",
+                "province": "Santiago Metropolitan",
+                "asn": 15169,
+                "asn_description": "GOOGLE",
+                "bgp_prefix": "172.253.0.0/16",
+                "asn_name": "GOOGLE",
+                "open_ports": [],
+                "os": null,
+                "mac_address": null,
+                "whois": {
+                    "domain_name": null,
+                    "registrar": null,
+                    "whois_server": null,
+                    "referral_url": null,
+                    "updated_date": null,
+                    "creation_date": null,
+                    "expiration_date": null,
+                    "name_servers": null,
+                    "status": null,
+                    "emails": [
+                        "network-abuse@google.com",
+                        "arin-contact@google.com"
+                    ],
+                    "dnssec": null,
+                    "name": null,
+                    "org": null,
+                    "address": null,
+                    "city": null,
+                    "state": null,
+                    "registrant_postal_code": null,
+                    "country": null
+                }
+            },
+            "72.14.243.170": {
+                "latitude": "-33.4569",
+                "longitude": "-70.6483",
+                "city": "Santiago",
+                "country": "Chile",
+                "province": "Santiago Metropolitan",
+                "asn": 15169,
+                "asn_description": "GOOGLE",
+                "bgp_prefix": "72.14.192.0/18",
+                "asn_name": "GOOGLE",
+                "open_ports": [],
+                "os": null,
+                "mac_address": null,
+                "whois": {
+                    "domain_name": null,
+                    "registrar": null,
+                    "whois_server": null,
+                    "referral_url": null,
+                    "updated_date": null,
+                    "creation_date": null,
+                    "expiration_date": null,
+                    "name_servers": null,
+                    "status": null,
+                    "emails": [
+                        "arin-contact@google.com",
+                        "network-abuse@google.com"
+                    ],
+                    "dnssec": null,
+                    "name": null,
+                    "org": null,
+                    "address": null,
+                    "city": null,
+                    "state": null,
+                    "registrant_postal_code": null,
+                    "country": null
+                }
+            },
+            "8.8.8.8": {
+                "latitude": "37.4056",
+                "longitude": "-122.0775",
+                "city": "Mountain View",
+                "country": "United States",
+                "province": "California",
+                "asn": 15169,
+                "asn_description": "GOOGLE",
+                "bgp_prefix": "8.8.8.0/24",
+                "asn_name": "GOOGLE",
+                "open_ports": [
+                    {
+                        "port": 53,
+                        "service": "DNS",
+                        "product": null,
+                        "version": null,
+                        "extra_info": null
+                    },
+                    {
+                        "port": 443,
+                        "service": "HTTPS",
+                        "product": null,
+                        "version": null,
+                        "extra_info": null
+                    },
+                    {
+                        "port": 443,
+                        "service": "UNKNOWN",
+                        "product": null,
+                        "version": null,
+                        "extra_info": null
+                    },
+                    {
+                        "port": 853,
+                        "service": "UNKNOWN",
+                        "product": null,
+                        "version": null,
+                        "extra_info": null
+                    }
+                ],
+                "os": null,
+                "mac_address": null,
+                "whois": {
+                    "domain_name": "dns.google",
+                    "registrar": "MarkMonitor Inc.",
+                    "whois_server": "whois.nic.google",
+                    "referral_url": null,
+                    "updated_date": "2024-03-20 10:02:54",
+                    "creation_date": "2018-04-16 22:57:01",
+                    "expiration_date": "2025-04-16 22:57:01",
+                    "name_servers": [
+                        "ns1.zdns.google",
+                        "ns2.zdns.google",
+                        "ns3.zdns.google",
+                        "ns4.zdns.google"
+                    ],
+                    "status": [
+                        "clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited",
+                        "clientTransferProhibited https://icann.org/epp#clientTransferProhibited",
+                        "clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited"
+                    ],
+                    "emails": "abusecomplaints@markmonitor.com",
+                    "dnssec": "signedDelegation",
+                    "name": "REDACTED FOR PRIVACY",
+                    "org": "Charleston Road Registry, Inc.",
+                    "address": "REDACTED FOR PRIVACY",
+                    "city": "REDACTED FOR PRIVACY",
+                    "state": "CA",
+                    "registrant_postal_code": "REDACTED FOR PRIVACY",
+                    "country": "US"
+                }
+            },
+            "10.50.3.10": {
                 "latitude": null,
                 "longitude": null,
                 "city": null,
@@ -150,7 +290,7 @@
                 "asn_name": null,
                 "open_ports": [],
                 "os": null,
-                "mac_address": "E4:AB:89:F9:DB:C0",
+                "mac_address": null,
                 "whois": {
                     "domain_name": null,
                     "registrar": null,
@@ -172,78 +312,16 @@
                     "country": null
                 }
             },
-            "212.133.24.90": {
-                "latitude": "50.8505",
-                "longitude": "4.3488",
-                "city": "Brussels",
-                "country": "Belgium",
-                "province": "Brussels Capital",
-                "asn": 3356,
-                "asn_description": "LEVEL3",
-                "bgp_prefix": "212.133.0.0/17",
-                "asn_name": "LEVEL3",
-                "open_ports": [],
-                "os": null,
-                "mac_address": null,
-                "whois": {
-                    "domain_name": [
-                        "LEVEL3.NET",
-                        "level3.net"
-                    ],
-                    "registrar": "MarkMonitor, Inc.",
-                    "whois_server": "whois.markmonitor.com",
-                    "referral_url": null,
-                    "updated_date": [
-                        "2024-02-28 09:44:12",
-                        "2024-02-28 09:44:12+00:00"
-                    ],
-                    "creation_date": [
-                        "1998-04-01 05:00:00",
-                        "1998-04-01 08:00:00+00:00"
-                    ],
-                    "expiration_date": [
-                        "2025-03-31 04:00:00",
-                        "2025-03-31 00:00:00+00:00"
-                    ],
-                    "name_servers": [
-                        "NS1.L3.NET",
-                        "NS2.L3.NET",
-                        "ns1.l3.net",
-                        "ns2.l3.net"
-                    ],
-                    "status": [
-                        "clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited",
-                        "clientTransferProhibited https://icann.org/epp#clientTransferProhibited",
-                        "clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited",
-                        "clientUpdateProhibited (https://www.icann.org/epp#clientUpdateProhibited)",
-                        "clientTransferProhibited (https://www.icann.org/epp#clientTransferProhibited)",
-                        "clientDeleteProhibited (https://www.icann.org/epp#clientDeleteProhibited)"
-                    ],
-                    "emails": [
-                        "abusecomplaints@markmonitor.com",
-                        "domains@lumen.com",
-                        "whoisrequest@markmonitor.com"
-                    ],
-                    "dnssec": "unsigned",
-                    "name": "Domain Administrator",
-                    "org": "Level 3 Communications, LLC",
-                    "address": "1025 El Dorado Blvd.,",
-                    "city": "Broomfield",
-                    "state": "CO",
-                    "registrant_postal_code": "80021",
-                    "country": "US"
-                }
-            },
-            "213.140.39.160": {
+            "190.22.160.1": {
                 "latitude": "-33.4569",
                 "longitude": "-70.6483",
                 "city": "Santiago",
                 "country": "Chile",
                 "province": "Santiago Metropolitan",
-                "asn": 12956,
-                "asn_description": "TELXIUS TELXIUS Cable",
-                "bgp_prefix": "213.140.32.0/19",
-                "asn_name": "TELXIUS TELXIUS Cable",
+                "asn": 7418,
+                "asn_description": "TELEFONICA CHILE S.A.",
+                "bgp_prefix": "190.22.0.0/16",
+                "asn_name": "TELEFONICA CHILE S.A.",
                 "open_ports": [],
                 "os": null,
                 "mac_address": null,
@@ -256,13 +334,11 @@
                     "creation_date": null,
                     "expiration_date": null,
                     "name_servers": null,
-                    "status": "ASSIGNED PA",
+                    "status": "reallocated",
                     "emails": [
-                        "hostmaster@ripe.net",
-                        "abuse@ripe.net",
-                        "'abuse.businesssolutions@telefonica.com",
-                        "security.businesssolutions@telefonica.com",
-                        "abuse.businesssolutions@telefonica.com"
+                        "whois-contact@lacnic.net",
+                        "abuse@lacnic.net",
+                        "tecnical.isp.movistar@gmail.com"
                     ],
                     "dnssec": null,
                     "name": null,
@@ -274,101 +350,19 @@
                     "country": null
                 }
             },
-            "171.75.8.23": {
-                "latitude": "50.8505",
-                "longitude": "4.3488",
-                "city": "Brussels",
-                "country": "Belgium",
-                "province": "Brussels Capital",
-                "asn": 3356,
-                "asn_description": "LEVEL3",
-                "bgp_prefix": "171.75.0.0/16",
-                "asn_name": "LEVEL3",
+            "192.168.1.1": {
+                "latitude": null,
+                "longitude": null,
+                "city": null,
+                "country": null,
+                "province": null,
+                "asn": null,
+                "asn_description": null,
+                "bgp_prefix": null,
+                "asn_name": null,
                 "open_ports": [],
                 "os": null,
-                "mac_address": null,
-                "whois": {
-                    "domain_name": [
-                        "COLT.NET",
-                        "colt.net"
-                    ],
-                    "registrar": "PSI-USA, Inc. dba Domain Robot",
-                    "whois_server": "whois.psi-usa.info",
-                    "referral_url": null,
-                    "updated_date": [
-                        "2023-12-06 08:01:39",
-                        "2024-07-01 17:22:52"
-                    ],
-                    "creation_date": "1996-12-06 05:00:00",
-                    "expiration_date": [
-                        "2024-12-05 05:00:00",
-                        "2024-12-31 23:00:00"
-                    ],
-                    "name_servers": [
-                        "NS2.COLT.NET",
-                        "NS3.COLT.NET",
-                        "NS4.COLT.NET",
-                        "ns2.colt.net 212.74.77.54",
-                        "ns3.colt.net 212.74.78.54",
-                        "ns4.colt.net 212.74.78.47"
-                    ],
-                    "status": [
-                        "clientTransferProhibited https://icann.org/epp#clientTransferProhibited",
-                        "clientTransferProhibited https://www.icann.org/epp#clientTransferProhibited"
-                    ],
-                    "emails": [
-                        "domain-abuse@psi-usa.info",
-                        "eudnsmaster@colt.net",
-                        "dns-requests@colt.net"
-                    ],
-                    "dnssec": "unsigned",
-                    "name": "Colt Technology Services",
-                    "org": "Colt Technology Services",
-                    "address": [
-                        "Beaufort House",
-                        "15 St Botolph Street"
-                    ],
-                    "city": "London",
-                    "state": "UK",
-                    "registrant_postal_code": "EC3A 7QN",
-                    "country": "GB"
-                }
-            },
-            "130.104.228.159": {
-                "latitude": "50.8505",
-                "longitude": "4.3488",
-                "city": "Brussels",
-                "country": "Belgium",
-                "province": "Brussels Capital",
-                "asn": 2611,
-                "asn_description": "BELNET",
-                "bgp_prefix": "130.104.0.0/16",
-                "asn_name": "BELNET",
-                "open_ports": [
-                    {
-                        "port": 53,
-                        "service": "DNS",
-                        "product": null,
-                        "version": null,
-                        "extra_info": null
-                    },
-                    {
-                        "port": 80,
-                        "service": "HTTP",
-                        "product": null,
-                        "version": null,
-                        "extra_info": null
-                    },
-                    {
-                        "port": 443,
-                        "service": "HTTP",
-                        "product": null,
-                        "version": null,
-                        "extra_info": null
-                    }
-                ],
-                "os": null,
-                "mac_address": null,
+                "mac_address": "2C:96:82:10:22:70",
                 "whois": {
                     "domain_name": null,
                     "registrar": null,
@@ -378,47 +372,8 @@
                     "creation_date": null,
                     "expiration_date": null,
                     "name_servers": null,
-                    "status": "LEGACY",
-                    "emails": [
-                        "hostmaster@ripe.net",
-                        "abuse@ripe.net",
-                        "'abuse@uclouvain.be",
-                        "abuse@uclouvain.be"
-                    ],
-                    "dnssec": null,
-                    "name": null,
-                    "org": null,
-                    "address": null,
-                    "city": null,
-                    "state": null,
-                    "registrant_postal_code": null,
-                    "country": null
-                }
-            },
-            "130.104.230.56": {
-                "latitude": "50.8505",
-                "longitude": "4.3488",
-                "city": "Brussels",
-                "country": "Belgium",
-                "province": "Brussels Capital",
-                "asn": 2611,
-                "asn_description": "BELNET",
-                "bgp_prefix": "130.104.0.0/16",
-                "asn_name": "BELNET",
-                "open_ports": [],
-                "os": null,
-                "mac_address": null,
-                "whois": {
-                    "domain_name": "ucl.ac.be",
-                    "registrar": null,
-                    "whois_server": null,
-                    "referral_url": null,
-                    "updated_date": null,
-                    "creation_date": null,
-                    "expiration_date": null,
-                    "name_servers": null,
-                    "status": "NOT ALLOWED",
-                    "emails": null,
+                    "status": null,
+                    "emails": "abuse@iana.org",
                     "dnssec": null,
                     "name": null,
                     "org": null,
@@ -462,137 +417,24 @@
                     "registrant_postal_code": null,
                     "country": null
                 }
-            },
-            "193.191.3.86": {
-                "latitude": "50.8505",
-                "longitude": "4.3488",
-                "city": "Brussels",
-                "country": "Belgium",
-                "province": "Brussels Capital",
-                "asn": 2611,
-                "asn_description": "BELNET",
-                "bgp_prefix": "193.190.0.0/15",
-                "asn_name": "BELNET",
-                "open_ports": [],
-                "os": null,
-                "mac_address": null,
-                "whois": {
-                    "domain_name": [
-                        "BELNET.NET",
-                        "belnet.net"
-                    ],
-                    "registrar": "Ascio Technologies, Inc",
-                    "whois_server": "whois.ascio.com",
-                    "referral_url": null,
-                    "updated_date": [
-                        "2024-02-12 08:01:37",
-                        "2024-02-12 00:50:41"
-                    ],
-                    "creation_date": [
-                        "1999-02-11 05:00:00",
-                        "1999-02-11 00:00:00"
-                    ],
-                    "expiration_date": [
-                        "2025-02-11 05:00:00",
-                        "2025-02-11 00:00:00"
-                    ],
-                    "name_servers": [
-                        "NS1.BELNET.BE",
-                        "NS2.BELNET.BE",
-                        "NS3.BELNET.BE",
-                        "ns1.belnet.be",
-                        "ns2.belnet.be",
-                        "ns3.belnet.be"
-                    ],
-                    "status": "clientTransferProhibited https://icann.org/epp#clientTransferProhibited",
-                    "emails": "abuse@ascio.com",
-                    "dnssec": "unsigned",
-                    "name": "Not Disclosed",
-                    "org": "Not Disclosed",
-                    "address": "Not Disclosed",
-                    "city": "Not Disclosed",
-                    "state": null,
-                    "registrant_postal_code": "Not Disclosed",
-                    "country": "BE"
-                }
-            },
-            "190.22.160.1": {
-                "latitude": "-33.4569",
-                "longitude": "-70.6483",
-                "city": "Santiago",
-                "country": "Chile",
-                "province": "Santiago Metropolitan",
-                "asn": 7418,
-                "asn_description": "TELEFONICA CHILE S.A.",
-                "bgp_prefix": "190.22.0.0/16",
-                "asn_name": "TELEFONICA CHILE S.A.",
-                "open_ports": [],
-                "os": null,
-                "mac_address": null,
-                "whois": {
-                    "domain_name": null,
-                    "registrar": null,
-                    "whois_server": null,
-                    "referral_url": null,
-                    "updated_date": null,
-                    "creation_date": null,
-                    "expiration_date": null,
-                    "name_servers": null,
-                    "status": "reallocated",
-                    "emails": [
-                        "abuse@lacnic.net",
-                        "whois-contact@lacnic.net",
-                        "tecnical.isp.movistar@gmail.com"
-                    ],
-                    "dnssec": null,
-                    "name": null,
-                    "org": null,
-                    "address": null,
-                    "city": null,
-                    "state": null,
-                    "registrant_postal_code": null,
-                    "country": null
-                }
-            },
-            "10.50.3.22": {
-                "latitude": null,
-                "longitude": null,
-                "city": null,
-                "country": null,
-                "province": null,
-                "asn": null,
-                "asn_description": null,
-                "bgp_prefix": null,
-                "asn_name": null,
-                "open_ports": [],
-                "os": null,
-                "mac_address": null,
-                "whois": {
-                    "domain_name": null,
-                    "registrar": null,
-                    "whois_server": null,
-                    "referral_url": null,
-                    "updated_date": null,
-                    "creation_date": null,
-                    "expiration_date": null,
-                    "name_servers": null,
-                    "status": null,
-                    "emails": "abuse@iana.org",
-                    "dnssec": null,
-                    "name": null,
-                    "org": null,
-                    "address": null,
-                    "city": null,
-                    "state": null,
-                    "registrant_postal_code": null,
-                    "country": null
-                }
             }
         },
+        "all_possible_routes": [
+            [
+                "192.168.1.1",
+                "190.22.160.1",
+                "10.50.3.9",
+                "10.50.3.10",
+                "72.14.243.170",
+                "172.253.69.33",
+                "72.14.237.169",
+                "8.8.8.8"
+            ]
+        ],
         "ping": {
-            "avg_latency": 220.99900000000002,
-            "jitter_max": 229.6,
-            "jitter_min": 220.0
+            "avg_latency": 3.5745999999999998,
+            "jitter_max": 5.81,
+            "jitter_min": 2.5
         }
     }
 }

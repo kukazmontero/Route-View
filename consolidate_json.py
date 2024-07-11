@@ -26,13 +26,15 @@ def consolidate_osint_data(ip, osint_data):
         ports_info = osint_data.get(source, {}).get("services", [])
         for port in ports_info:
             if port.get("port"):
-                consolidated_data["open_ports"].append({
+                port_entry = {
                     "port": port.get("port"),
                     "service": port.get("extended_service_name") or port.get("name"),
                     "product": port.get("product"),
                     "version": port.get("version"),
                     "extra_info": port.get("extrainfo")
-                })
+                }
+                if port_entry not in consolidated_data["open_ports"]:
+                    consolidated_data["open_ports"].append(port_entry)
 
     # Información adicional de Nmap
     nmap_info = osint_data.get("nmap", {})
@@ -83,7 +85,8 @@ osint_data = data[target]["osint"]
 final_results[target] = {
     "best_protocol": best_protocol,
     "best_result": best_result,
-    "osint": {}
+    "osint": {},
+    "all_possible_routes": best_result.get("all_possible_routes", []),
 }
 
 # Consolidar la información OSINT

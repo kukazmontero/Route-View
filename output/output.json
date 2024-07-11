@@ -1,6 +1,6 @@
 {
-    "130.104.228.159": {
-        "best_protocol": "udp",
+    "8.8.8.8": {
+        "best_protocol": "icmp",
         "best_result": {
             "routes": [
                 {
@@ -24,81 +24,31 @@
                 {
                     "ttl": 4,
                     "hops": [
-                        "10.50.3.22"
+                        "10.50.3.10"
                     ]
                 },
                 {
                     "ttl": 5,
                     "hops": [
-                        "213.140.39.160"
+                        "72.14.243.170"
                     ]
                 },
                 {
                     "ttl": 6,
-                    "hops": []
+                    "hops": [
+                        "172.253.69.33"
+                    ]
                 },
                 {
                     "ttl": 7,
-                    "hops": []
+                    "hops": [
+                        "72.14.237.169"
+                    ]
                 },
                 {
                     "ttl": 8,
                     "hops": [
-                        "171.75.8.23"
-                    ]
-                },
-                {
-                    "ttl": 9,
-                    "hops": [
-                        "171.75.8.23"
-                    ]
-                },
-                {
-                    "ttl": 10,
-                    "hops": [
-                        "212.133.24.90"
-                    ]
-                },
-                {
-                    "ttl": 11,
-                    "hops": [
-                        "193.191.3.86"
-                    ]
-                },
-                {
-                    "ttl": 12,
-                    "hops": [
-                        "193.191.3.86"
-                    ]
-                },
-                {
-                    "ttl": 13,
-                    "hops": []
-                },
-                {
-                    "ttl": 14,
-                    "hops": []
-                },
-                {
-                    "ttl": 15,
-                    "hops": []
-                },
-                {
-                    "ttl": 16,
-                    "hops": [
-                        "130.104.230.56"
-                    ]
-                },
-                {
-                    "ttl": 17,
-                    "hops": [
-                        "130.104.230.56"
-                    ]
-                },
-                {
-                    "ttl": 18,
-                    "hops": [
-                        "130.104.228.159"
+                        "8.8.8.8"
                     ]
                 }
             ],
@@ -110,34 +60,94 @@
                     "10.50.3.9"
                 ],
                 "10.50.3.9": [
-                    "10.50.3.22"
+                    "10.50.3.10"
                 ],
-                "10.50.3.22": [
-                    "213.140.39.160"
+                "10.50.3.10": [
+                    "72.14.243.170"
                 ],
-                "213.140.39.160": [],
-                "171.75.8.23": [
-                    "171.75.8.23",
-                    "212.133.24.90"
+                "72.14.243.170": [
+                    "172.253.69.33"
                 ],
-                "212.133.24.90": [
-                    "193.191.3.86"
+                "172.253.69.33": [
+                    "72.14.237.169"
                 ],
-                "193.191.3.86": [
-                    "193.191.3.86"
-                ],
-                "130.104.230.56": [
-                    "130.104.230.56",
-                    "130.104.228.159"
+                "72.14.237.169": [
+                    "8.8.8.8"
                 ]
             },
-            "total_ips": 13,
-            "total_hops": 18,
-            "efficiency": 0.7222222222222222,
-            "packet_loss": 75.92592592592592,
-            "load_balancing": 9
+            "total_ips": 8,
+            "total_hops": 8,
+            "efficiency": 1.0,
+            "packet_loss": 0.0,
+            "all_possible_routes": [
+                [
+                    "192.168.1.1",
+                    "190.22.160.1",
+                    "10.50.3.9",
+                    "10.50.3.10",
+                    "72.14.243.170",
+                    "172.253.69.33",
+                    "72.14.237.169",
+                    "8.8.8.8"
+                ]
+            ],
+            "load_balancing": 1,
+            "route_diversity": "bajo"
         },
         "all_results": {
+            "udp": {
+                "routes": [
+                    {
+                        "ttl": 1,
+                        "hops": [
+                            "192.168.1.1"
+                        ]
+                    },
+                    {
+                        "ttl": 2,
+                        "hops": [
+                            "190.22.160.1"
+                        ]
+                    },
+                    {
+                        "ttl": 3,
+                        "hops": []
+                    },
+                    {
+                        "ttl": 4,
+                        "hops": []
+                    },
+                    {
+                        "ttl": 5,
+                        "hops": [
+                            "72.14.202.154",
+                            "192.178.68.148"
+                        ]
+                    },
+                    {
+                        "ttl": 6,
+                        "hops": []
+                    },
+                    {
+                        "ttl": 7,
+                        "hops": [
+                            "8.8.8.8"
+                        ]
+                    }
+                ],
+                "connections": {
+                    "192.168.1.1": [
+                        "190.22.160.1"
+                    ],
+                    "190.22.160.1": [],
+                    "72.14.202.154": [],
+                    "192.178.68.148": []
+                },
+                "total_ips": 4,
+                "total_hops": 7,
+                "efficiency": 0.5714285714285714,
+                "packet_loss": 76.19047619047619
+            },
             "icmp": {
                 "routes": [
                     {
@@ -161,75 +171,31 @@
                     {
                         "ttl": 4,
                         "hops": [
-                            "10.50.3.22"
+                            "10.50.3.10"
                         ]
                     },
                     {
                         "ttl": 5,
-                        "hops": []
+                        "hops": [
+                            "72.14.243.170"
+                        ]
                     },
                     {
                         "ttl": 6,
                         "hops": [
-                            "94.142.99.41"
+                            "172.253.69.33"
                         ]
                     },
                     {
                         "ttl": 7,
-                        "hops": []
+                        "hops": [
+                            "72.14.237.169"
+                        ]
                     },
                     {
                         "ttl": 8,
-                        "hops": []
-                    },
-                    {
-                        "ttl": 9,
                         "hops": [
-                            "171.75.8.23"
-                        ]
-                    },
-                    {
-                        "ttl": 10,
-                        "hops": [
-                            "212.133.24.90"
-                        ]
-                    },
-                    {
-                        "ttl": 11,
-                        "hops": []
-                    },
-                    {
-                        "ttl": 12,
-                        "hops": [
-                            "193.191.3.86"
-                        ]
-                    },
-                    {
-                        "ttl": 13,
-                        "hops": []
-                    },
-                    {
-                        "ttl": 14,
-                        "hops": []
-                    },
-                    {
-                        "ttl": 15,
-                        "hops": []
-                    },
-                    {
-                        "ttl": 16,
-                        "hops": []
-                    },
-                    {
-                        "ttl": 17,
-                        "hops": [
-                            "130.104.230.56"
-                        ]
-                    },
-                    {
-                        "ttl": 18,
-                        "hops": [
-                            "130.104.228.159"
+                            "8.8.8.8"
                         ]
                     }
                 ],
@@ -241,159 +207,39 @@
                         "10.50.3.9"
                     ],
                     "10.50.3.9": [
-                        "10.50.3.22"
+                        "10.50.3.10"
                     ],
-                    "10.50.3.22": [],
-                    "94.142.99.41": [],
-                    "171.75.8.23": [
-                        "212.133.24.90"
+                    "10.50.3.10": [
+                        "72.14.243.170"
                     ],
-                    "212.133.24.90": [],
-                    "193.191.3.86": [],
-                    "130.104.230.56": [
-                        "130.104.228.159"
+                    "72.14.243.170": [
+                        "172.253.69.33"
+                    ],
+                    "172.253.69.33": [
+                        "72.14.237.169"
+                    ],
+                    "72.14.237.169": [
+                        "8.8.8.8"
                     ]
                 },
-                "total_ips": 10,
-                "total_hops": 18,
-                "efficiency": 0.5555555555555556,
-                "packet_loss": 86.17021276595744
-            },
-            "udp": {
-                "routes": [
-                    {
-                        "ttl": 1,
-                        "hops": [
-                            "192.168.1.1"
-                        ]
-                    },
-                    {
-                        "ttl": 2,
-                        "hops": [
-                            "190.22.160.1"
-                        ]
-                    },
-                    {
-                        "ttl": 3,
-                        "hops": [
-                            "10.50.3.9"
-                        ]
-                    },
-                    {
-                        "ttl": 4,
-                        "hops": [
-                            "10.50.3.22"
-                        ]
-                    },
-                    {
-                        "ttl": 5,
-                        "hops": [
-                            "213.140.39.160"
-                        ]
-                    },
-                    {
-                        "ttl": 6,
-                        "hops": []
-                    },
-                    {
-                        "ttl": 7,
-                        "hops": []
-                    },
-                    {
-                        "ttl": 8,
-                        "hops": [
-                            "171.75.8.23"
-                        ]
-                    },
-                    {
-                        "ttl": 9,
-                        "hops": [
-                            "171.75.8.23"
-                        ]
-                    },
-                    {
-                        "ttl": 10,
-                        "hops": [
-                            "212.133.24.90"
-                        ]
-                    },
-                    {
-                        "ttl": 11,
-                        "hops": [
-                            "193.191.3.86"
-                        ]
-                    },
-                    {
-                        "ttl": 12,
-                        "hops": [
-                            "193.191.3.86"
-                        ]
-                    },
-                    {
-                        "ttl": 13,
-                        "hops": []
-                    },
-                    {
-                        "ttl": 14,
-                        "hops": []
-                    },
-                    {
-                        "ttl": 15,
-                        "hops": []
-                    },
-                    {
-                        "ttl": 16,
-                        "hops": [
-                            "130.104.230.56"
-                        ]
-                    },
-                    {
-                        "ttl": 17,
-                        "hops": [
-                            "130.104.230.56"
-                        ]
-                    },
-                    {
-                        "ttl": 18,
-                        "hops": [
-                            "130.104.228.159"
-                        ]
-                    }
+                "total_ips": 8,
+                "total_hops": 8,
+                "efficiency": 1.0,
+                "packet_loss": 0.0,
+                "all_possible_routes": [
+                    [
+                        "192.168.1.1",
+                        "190.22.160.1",
+                        "10.50.3.9",
+                        "10.50.3.10",
+                        "72.14.243.170",
+                        "172.253.69.33",
+                        "72.14.237.169",
+                        "8.8.8.8"
+                    ]
                 ],
-                "connections": {
-                    "192.168.1.1": [
-                        "190.22.160.1"
-                    ],
-                    "190.22.160.1": [
-                        "10.50.3.9"
-                    ],
-                    "10.50.3.9": [
-                        "10.50.3.22"
-                    ],
-                    "10.50.3.22": [
-                        "213.140.39.160"
-                    ],
-                    "213.140.39.160": [],
-                    "171.75.8.23": [
-                        "171.75.8.23",
-                        "212.133.24.90"
-                    ],
-                    "212.133.24.90": [
-                        "193.191.3.86"
-                    ],
-                    "193.191.3.86": [
-                        "193.191.3.86"
-                    ],
-                    "130.104.230.56": [
-                        "130.104.230.56",
-                        "130.104.228.159"
-                    ]
-                },
-                "total_ips": 13,
-                "total_hops": 18,
-                "efficiency": 0.7222222222222222,
-                "packet_loss": 75.92592592592592,
-                "load_balancing": 9
+                "load_balancing": 1,
+                "route_diversity": "bajo"
             },
             "tcp": {
                 "routes": [
@@ -412,7 +258,6 @@
                     {
                         "ttl": 3,
                         "hops": [
-                            "10.50.3.21",
                             "10.50.3.9"
                         ]
                     },
@@ -425,8 +270,8 @@
                     {
                         "ttl": 5,
                         "hops": [
-                            "213.140.39.160",
-                            "5.53.1.62"
+                            "72.14.202.154",
+                            "72.14.243.170"
                         ]
                     },
                     {
@@ -443,51 +288,7 @@
                     },
                     {
                         "ttl": 9,
-                        "hops": [
-                            "171.75.8.23",
-                            "212.133.24.90"
-                        ]
-                    },
-                    {
-                        "ttl": 10,
                         "hops": []
-                    },
-                    {
-                        "ttl": 11,
-                        "hops": [
-                            "193.191.3.86"
-                        ]
-                    },
-                    {
-                        "ttl": 12,
-                        "hops": [
-                            "193.191.3.86"
-                        ]
-                    },
-                    {
-                        "ttl": 13,
-                        "hops": []
-                    },
-                    {
-                        "ttl": 14,
-                        "hops": []
-                    },
-                    {
-                        "ttl": 15,
-                        "hops": []
-                    },
-                    {
-                        "ttl": 16,
-                        "hops": [
-                            "130.104.230.56"
-                        ]
-                    },
-                    {
-                        "ttl": 17,
-                        "hops": [
-                            "130.104.228.159",
-                            "130.104.230.56"
-                        ]
                     }
                 ],
                 "connections": {
@@ -495,38 +296,1620 @@
                         "190.22.160.1"
                     ],
                     "190.22.160.1": [
-                        "10.50.3.21",
                         "10.50.3.9"
-                    ],
-                    "10.50.3.21": [
-                        "10.50.3.10"
                     ],
                     "10.50.3.9": [
                         "10.50.3.10"
                     ],
                     "10.50.3.10": [
-                        "213.140.39.160",
-                        "5.53.1.62"
+                        "72.14.202.154",
+                        "72.14.243.170"
                     ],
-                    "213.140.39.160": [],
-                    "5.53.1.62": [],
-                    "171.75.8.23": [],
-                    "212.133.24.90": [],
-                    "193.191.3.86": [
-                        "193.191.3.86"
-                    ],
-                    "130.104.230.56": [
-                        "130.104.228.159",
-                        "130.104.230.56"
-                    ]
+                    "72.14.202.154": [],
+                    "72.14.243.170": []
                 },
-                "total_ips": 10,
-                "total_hops": 17,
-                "efficiency": 0.5882352941176471,
-                "packet_loss": 47.05882352941176
+                "total_ips": 5,
+                "total_hops": 9,
+                "efficiency": 0.5555555555555556,
+                "packet_loss": 56.666666666666664
             }
         },
         "osint": {
+            "72.14.237.169": {
+                "censys": {
+                    "ip": "72.14.237.169",
+                    "services": [],
+                    "location": {
+                        "continent": "South America",
+                        "country": "Chile",
+                        "country_code": "CL",
+                        "city": "Santiago",
+                        "postal_code": "8320000",
+                        "timezone": "America/Santiago",
+                        "province": "Santiago Metropolitan",
+                        "coordinates": {
+                            "latitude": -33.45694,
+                            "longitude": -70.64827
+                        }
+                    },
+                    "location_updated_at": "2024-07-11T04:46:23.739278180Z",
+                    "autonomous_system": {
+                        "asn": 15169,
+                        "description": "GOOGLE",
+                        "bgp_prefix": "72.14.192.0/18",
+                        "name": "GOOGLE",
+                        "country_code": "US"
+                    },
+                    "autonomous_system_updated_at": "2024-07-11T04:46:23.739278180Z",
+                    "whois": {
+                        "network": {
+                            "handle": "GOOGLE",
+                            "name": "Google LLC",
+                            "cidrs": [
+                                "72.14.192.0/18"
+                            ],
+                            "created": "2004-11-10T00:00:00Z",
+                            "updated": "2012-02-24T00:00:00Z",
+                            "allocation_type": "ALLOCATION"
+                        },
+                        "organization": {
+                            "handle": "GOGL",
+                            "name": "Google LLC",
+                            "street": "1600 Amphitheatre Parkway",
+                            "city": "Mountain View",
+                            "state": "CA",
+                            "postal_code": "94043",
+                            "country": "US",
+                            "abuse_contacts": [
+                                {
+                                    "handle": "ABUSE5250-ARIN",
+                                    "name": "Abuse",
+                                    "email": "network-abuse@google.com"
+                                }
+                            ],
+                            "admin_contacts": [
+                                {
+                                    "handle": "ZG39-ARIN",
+                                    "name": "Google LLC",
+                                    "email": "arin-contact@google.com"
+                                }
+                            ],
+                            "tech_contacts": [
+                                {
+                                    "handle": "ZG39-ARIN",
+                                    "name": "Google LLC",
+                                    "email": "arin-contact@google.com"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "zoomeye": {
+                    "error": "No data available"
+                },
+                "nmap": {
+                    "hostnames": [
+                        {
+                            "name": "",
+                            "type": ""
+                        }
+                    ],
+                    "addresses": {
+                        "ipv4": "72.14.237.169"
+                    },
+                    "vendor": {},
+                    "status": {
+                        "state": "up",
+                        "reason": "echo-reply"
+                    }
+                },
+                "whois": {
+                    "domain_name": null,
+                    "registrar": null,
+                    "whois_server": null,
+                    "referral_url": null,
+                    "updated_date": null,
+                    "creation_date": null,
+                    "expiration_date": null,
+                    "name_servers": null,
+                    "status": null,
+                    "emails": [
+                        "arin-contact@google.com",
+                        "network-abuse@google.com"
+                    ],
+                    "dnssec": null,
+                    "name": null,
+                    "org": null,
+                    "address": null,
+                    "city": null,
+                    "state": null,
+                    "registrant_postal_code": null,
+                    "country": null
+                },
+                "geo": {
+                    "latitude": "-33.4569",
+                    "longitude": "-70.6483"
+                }
+            },
+            "172.253.69.33": {
+                "censys": {
+                    "ip": "172.253.69.33",
+                    "services": [],
+                    "location": {
+                        "continent": "South America",
+                        "country": "Chile",
+                        "country_code": "CL",
+                        "city": "Santiago",
+                        "postal_code": "8320000",
+                        "timezone": "America/Santiago",
+                        "province": "Santiago Metropolitan",
+                        "coordinates": {
+                            "latitude": -33.45694,
+                            "longitude": -70.64827
+                        }
+                    },
+                    "location_updated_at": "2024-07-11T04:55:49.591970535Z",
+                    "autonomous_system": {
+                        "asn": 15169,
+                        "description": "GOOGLE",
+                        "bgp_prefix": "172.253.0.0/16",
+                        "name": "GOOGLE",
+                        "country_code": "US"
+                    },
+                    "autonomous_system_updated_at": "2024-07-11T04:55:49.591970535Z",
+                    "whois": {
+                        "network": {
+                            "handle": "GOOGLE",
+                            "name": "Google LLC",
+                            "cidrs": [
+                                "172.253.0.0/16"
+                            ],
+                            "created": "2013-04-04T00:00:00Z",
+                            "updated": "2013-04-04T00:00:00Z",
+                            "allocation_type": "ALLOCATION"
+                        },
+                        "organization": {
+                            "handle": "GOGL",
+                            "name": "Google LLC",
+                            "street": "1600 Amphitheatre Parkway",
+                            "city": "Mountain View",
+                            "state": "CA",
+                            "postal_code": "94043",
+                            "country": "US",
+                            "abuse_contacts": [
+                                {
+                                    "handle": "ABUSE5250-ARIN",
+                                    "name": "Abuse",
+                                    "email": "network-abuse@google.com"
+                                }
+                            ],
+                            "admin_contacts": [
+                                {
+                                    "handle": "ZG39-ARIN",
+                                    "name": "Google LLC",
+                                    "email": "arin-contact@google.com"
+                                }
+                            ],
+                            "tech_contacts": [
+                                {
+                                    "handle": "ZG39-ARIN",
+                                    "name": "Google LLC",
+                                    "email": "arin-contact@google.com"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "zoomeye": {
+                    "error": "No data available"
+                },
+                "nmap": {
+                    "hostnames": [
+                        {
+                            "name": "",
+                            "type": ""
+                        }
+                    ],
+                    "addresses": {
+                        "ipv4": "172.253.69.33"
+                    },
+                    "vendor": {},
+                    "status": {
+                        "state": "up",
+                        "reason": "echo-reply"
+                    }
+                },
+                "whois": {
+                    "domain_name": null,
+                    "registrar": null,
+                    "whois_server": null,
+                    "referral_url": null,
+                    "updated_date": null,
+                    "creation_date": null,
+                    "expiration_date": null,
+                    "name_servers": null,
+                    "status": null,
+                    "emails": [
+                        "network-abuse@google.com",
+                        "arin-contact@google.com"
+                    ],
+                    "dnssec": null,
+                    "name": null,
+                    "org": null,
+                    "address": null,
+                    "city": null,
+                    "state": null,
+                    "registrant_postal_code": null,
+                    "country": null
+                },
+                "geo": {
+                    "latitude": "-33.4569",
+                    "longitude": "-70.6483"
+                }
+            },
+            "72.14.243.170": {
+                "censys": {
+                    "ip": "72.14.243.170",
+                    "services": [],
+                    "location": {
+                        "continent": "South America",
+                        "country": "Chile",
+                        "country_code": "CL",
+                        "city": "Santiago",
+                        "postal_code": "8320000",
+                        "timezone": "America/Santiago",
+                        "province": "Santiago Metropolitan",
+                        "coordinates": {
+                            "latitude": -33.45694,
+                            "longitude": -70.64827
+                        }
+                    },
+                    "location_updated_at": "2024-07-11T04:33:26.500493032Z",
+                    "autonomous_system": {
+                        "asn": 15169,
+                        "description": "GOOGLE",
+                        "bgp_prefix": "72.14.192.0/18",
+                        "name": "GOOGLE",
+                        "country_code": "US"
+                    },
+                    "autonomous_system_updated_at": "2024-07-11T04:33:26.500493032Z",
+                    "whois": {
+                        "network": {
+                            "handle": "GOOGLE",
+                            "name": "Google LLC",
+                            "cidrs": [
+                                "72.14.192.0/18"
+                            ],
+                            "created": "2004-11-10T00:00:00Z",
+                            "updated": "2012-02-24T00:00:00Z",
+                            "allocation_type": "ALLOCATION"
+                        },
+                        "organization": {
+                            "handle": "GOGL",
+                            "name": "Google LLC",
+                            "street": "1600 Amphitheatre Parkway",
+                            "city": "Mountain View",
+                            "state": "CA",
+                            "postal_code": "94043",
+                            "country": "US",
+                            "abuse_contacts": [
+                                {
+                                    "handle": "ABUSE5250-ARIN",
+                                    "name": "Abuse",
+                                    "email": "network-abuse@google.com"
+                                }
+                            ],
+                            "admin_contacts": [
+                                {
+                                    "handle": "ZG39-ARIN",
+                                    "name": "Google LLC",
+                                    "email": "arin-contact@google.com"
+                                }
+                            ],
+                            "tech_contacts": [
+                                {
+                                    "handle": "ZG39-ARIN",
+                                    "name": "Google LLC",
+                                    "email": "arin-contact@google.com"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "zoomeye": {
+                    "error": "No data available"
+                },
+                "nmap": {
+                    "hostnames": [
+                        {
+                            "name": "",
+                            "type": ""
+                        }
+                    ],
+                    "addresses": {
+                        "ipv4": "72.14.243.170"
+                    },
+                    "vendor": {},
+                    "status": {
+                        "state": "up",
+                        "reason": "echo-reply"
+                    }
+                },
+                "whois": {
+                    "domain_name": null,
+                    "registrar": null,
+                    "whois_server": null,
+                    "referral_url": null,
+                    "updated_date": null,
+                    "creation_date": null,
+                    "expiration_date": null,
+                    "name_servers": null,
+                    "status": null,
+                    "emails": [
+                        "arin-contact@google.com",
+                        "network-abuse@google.com"
+                    ],
+                    "dnssec": null,
+                    "name": null,
+                    "org": null,
+                    "address": null,
+                    "city": null,
+                    "state": null,
+                    "registrant_postal_code": null,
+                    "country": null
+                },
+                "geo": {
+                    "latitude": "-33.4569",
+                    "longitude": "-70.6483"
+                }
+            },
+            "8.8.8.8": {
+                "censys": {
+                    "ip": "8.8.8.8",
+                    "services": [
+                        {
+                            "_decoded": "dns",
+                            "dns": {
+                                "server_type": "FORWARDING",
+                                "resolves_correctly": true,
+                                "answers": [
+                                    {
+                                        "name": "ip.parrotdns.com.",
+                                        "response": "35.202.119.40",
+                                        "type": "A"
+                                    },
+                                    {
+                                        "name": "ip.parrotdns.com.",
+                                        "response": "74.125.113.155",
+                                        "type": "A"
+                                    }
+                                ],
+                                "questions": [
+                                    {
+                                        "name": "ip.parrotdns.com.",
+                                        "response": ";ip.parrotdns.com.\tIN\t A",
+                                        "type": "A"
+                                    }
+                                ],
+                                "edns": {
+                                    "do": true,
+                                    "udp": 512,
+                                    "version": 0
+                                },
+                                "r_code": "SUCCESS"
+                            },
+                            "extended_service_name": "DNS",
+                            "observed_at": "2024-07-09T16:28:45.879341326Z",
+                            "perspective_id": "PERSPECTIVE_NTT",
+                            "port": 53,
+                            "service_name": "DNS",
+                            "source_ip": "206.168.34.49",
+                            "transport_protocol": "UDP",
+                            "truncated": false
+                        },
+                        {
+                            "_decoded": "http",
+                            "_encoding": {
+                                "banner": "DISPLAY_UTF8",
+                                "certificate": "DISPLAY_HEX",
+                                "banner_hex": "DISPLAY_HEX"
+                            },
+                            "banner": "HTTP/1.1 302 Found\r\nX-Content-Type-Options: nosniff\r\nAccess-Control-Allow-Origin: *\r\nLocation: https://dns.google/\r\nDate:  <REDACTED>\r\nContent-Type: text/html; charset=UTF-8\r\nServer: HTTP server (unknown)\r\nContent-Length: 216\r\nX-XSS-Protection: 0\r\nX-Frame-Options: SAMEORIGIN\r\nAlt-Svc: h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000\r\n",
+                            "banner_hashes": [
+                                "sha256:4437c46b3fe8051471b181c33e3d9a3dc7fb9d41d3e1f1c9ff0e0fc7409b702f"
+                            ],
+                            "banner_hex": "485454502f312e312033303220466f756e640d0a582d436f6e74656e742d547970652d4f7074696f6e733a206e6f736e6966660d0a4163636573732d436f6e74726f6c2d416c6c6f772d4f726967696e3a202a0d0a4c6f636174696f6e3a2068747470733a2f2f646e732e676f6f676c652f0d0a446174653a20203c52454441435445443e0d0a436f6e74656e742d547970653a20746578742f68746d6c3b20636861727365743d5554462d380d0a5365727665723a2048545450207365727665722028756e6b6e6f776e290d0a436f6e74656e742d4c656e6774683a203231360d0a582d5853532d50726f74656374696f6e3a20300d0a582d4672616d652d4f7074696f6e733a2053414d454f524947494e0d0a416c742d5376633a2068333d223a343433223b206d613d323539323030302c68332d32393d223a343433223b206d613d323539323030300d0a",
+                            "certificate": "f5b58b959d31c752b53fd1b61523778f11f19035e72ba1448fba6b1ff2c70172",
+                            "extended_service_name": "HTTPS",
+                            "http": {
+                                "request": {
+                                    "method": "GET",
+                                    "uri": "https://8.8.8.8/",
+                                    "headers": {
+                                        "User_Agent": [
+                                            "Mozilla/5.0 (compatible; CensysInspect/1.1; +https://about.censys.io/)"
+                                        ],
+                                        "_encoding": {
+                                            "User_Agent": "DISPLAY_UTF8",
+                                            "Accept": "DISPLAY_UTF8"
+                                        },
+                                        "Accept": [
+                                            "*/*"
+                                        ]
+                                    }
+                                },
+                                "response": {
+                                    "protocol": "HTTP/1.1",
+                                    "status_code": 302,
+                                    "status_reason": "Found",
+                                    "headers": {
+                                        "X_Frame_Options": [
+                                            "SAMEORIGIN"
+                                        ],
+                                        "_encoding": {
+                                            "X_Frame_Options": "DISPLAY_UTF8",
+                                            "Server": "DISPLAY_UTF8",
+                                            "Content_Length": "DISPLAY_UTF8",
+                                            "Content_Type": "DISPLAY_UTF8",
+                                            "Location": "DISPLAY_UTF8",
+                                            "X_XSS_Protection": "DISPLAY_UTF8",
+                                            "Access_Control_Allow_Origin": "DISPLAY_UTF8",
+                                            "X_Content_Type_Options": "DISPLAY_UTF8",
+                                            "Date": "DISPLAY_UTF8",
+                                            "Alt_Svc": "DISPLAY_UTF8"
+                                        },
+                                        "Server": [
+                                            "HTTP server (unknown)"
+                                        ],
+                                        "Content_Length": [
+                                            "216"
+                                        ],
+                                        "Content_Type": [
+                                            "text/html; charset=UTF-8"
+                                        ],
+                                        "Location": [
+                                            "https://dns.google/"
+                                        ],
+                                        "X_XSS_Protection": [
+                                            "0"
+                                        ],
+                                        "Access_Control_Allow_Origin": [
+                                            "*"
+                                        ],
+                                        "X_Content_Type_Options": [
+                                            "nosniff"
+                                        ],
+                                        "Date": [
+                                            "<REDACTED>"
+                                        ],
+                                        "Alt_Svc": [
+                                            "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+                                        ]
+                                    },
+                                    "_encoding": {
+                                        "html_tags": "DISPLAY_UTF8",
+                                        "body": "DISPLAY_UTF8",
+                                        "body_hash": "DISPLAY_UTF8",
+                                        "html_title": "DISPLAY_UTF8"
+                                    },
+                                    "html_tags": [
+                                        "<TITLE>302 Moved</TITLE>",
+                                        "<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">"
+                                    ],
+                                    "body_size": 216,
+                                    "body": "<HTML><HEAD><meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<TITLE>302 Moved</TITLE></HEAD><BODY>\n<H1>302 Moved</H1>\nThe document has moved\n<A HREF=\"https://dns.google/\">here</A>.\r\n</BODY></HTML>\r\n",
+                                    "body_hashes": [
+                                        "sha256:4d2df97f002e1d1905cf64366eddaa9a57f2f99b3cc7101c3bebff18428ed894",
+                                        "sha1:1fd84b37b709256752fe1f865f86b5bec05cf712"
+                                    ],
+                                    "body_hash": "sha1:1fd84b37b709256752fe1f865f86b5bec05cf712",
+                                    "html_title": "302 Moved"
+                                },
+                                "supports_http2": true
+                            },
+                            "observed_at": "2024-07-11T03:50:48.027232836Z",
+                            "perspective_id": "PERSPECTIVE_NTT_2",
+                            "port": 443,
+                            "service_name": "HTTP",
+                            "source_ip": "199.45.155.90",
+                            "tls": {
+                                "version_selected": "TLSv1_3",
+                                "cipher_selected": "TLS_CHACHA20_POLY1305_SHA256",
+                                "certificates": {
+                                    "_encoding": {
+                                        "leaf_fp_sha_256": "DISPLAY_HEX",
+                                        "chain_fps_sha_256": "DISPLAY_HEX"
+                                    },
+                                    "leaf_fp_sha_256": "f5b58b959d31c752b53fd1b61523778f11f19035e72ba1448fba6b1ff2c70172",
+                                    "chain_fps_sha_256": [
+                                        "e6fe22bf45e4f0d3b85c59e02c0f495418e1eb8d3210f788d48cd5e1cb547cd4",
+                                        "3ee0278df71fa3c125c4cd487f01d774694e6fc57e0cd94c24efd769133918e5"
+                                    ],
+                                    "leaf_data": {
+                                        "names": [
+                                            "*.dns.google.com",
+                                            "8.8.4.4",
+                                            "8.8.8.8",
+                                            "8888.google",
+                                            "dns.google",
+                                            "dns.google.com",
+                                            "dns64.dns.google"
+                                        ],
+                                        "subject_dn": "CN=dns.google",
+                                        "issuer_dn": "C=US, O=Google Trust Services, CN=WR2",
+                                        "pubkey_bit_size": 2048,
+                                        "pubkey_algorithm": "RSA",
+                                        "tbs_fingerprint": "967263d1be68208d901d5946a068152a2d8cc2f2ac6f37ea5616eb728a046ec1",
+                                        "fingerprint": "f5b58b959d31c752b53fd1b61523778f11f19035e72ba1448fba6b1ff2c70172",
+                                        "issuer": {
+                                            "common_name": [
+                                                "WR2"
+                                            ],
+                                            "organization": [
+                                                "Google Trust Services"
+                                            ],
+                                            "country": [
+                                                "US"
+                                            ]
+                                        },
+                                        "subject": {
+                                            "common_name": [
+                                                "dns.google"
+                                            ]
+                                        },
+                                        "public_key": {
+                                            "key_algorithm": "RSA",
+                                            "rsa": {
+                                                "_encoding": {
+                                                    "modulus": "DISPLAY_BASE64",
+                                                    "exponent": "DISPLAY_BASE64"
+                                                },
+                                                "modulus": "udPleh5PMftF1SMpvlrBoIAxSj11MsBimOND5VSMURk9SE1YOF/RvWhwv74Y3J0uD6CWWSSXt+ykbv8tZuSSxYtLE5WReNC0Zuvxf6q3xJ8YWVTFyGg4bGNT7z4j/MywD7sdoSkEVnzkhuGazXvQhDTXrK//buwJLmsUScfYXHTHWirbgxat2KZ44gU60MFFCHfVe7PBNd16Fe0ZcVXfECROnyml71Uvjq+QsrW1nKYr3ClFRaCtZ99Slw48Ush/HT7DcuCn/FA8HusEN+Tz9FexukabIhKp/DnbjTg6neJ6anEg/osjphj2DTkxLY4ZbRwABFAbySF6luLYJ4NKfQ==",
+                                                "exponent": "AAEAAQ==",
+                                                "length": 256
+                                            },
+                                            "fingerprint": "1b94764e1e5466dd1162bd0b91bcc5cf96145a8d01bfa6b0401039e2ddc1690c"
+                                        },
+                                        "signature": {
+                                            "signature_algorithm": "SHA256-RSA",
+                                            "self_signed": false
+                                        }
+                                    },
+                                    "chain": [
+                                        {
+                                            "fingerprint": "e6fe22bf45e4f0d3b85c59e02c0f495418e1eb8d3210f788d48cd5e1cb547cd4",
+                                            "subject_dn": "C=US, O=Google Trust Services, CN=WR2",
+                                            "issuer_dn": "C=US, O=Google Trust Services LLC, CN=GTS Root R1"
+                                        },
+                                        {
+                                            "fingerprint": "3ee0278df71fa3c125c4cd487f01d774694e6fc57e0cd94c24efd769133918e5",
+                                            "subject_dn": "C=US, O=Google Trust Services LLC, CN=GTS Root R1",
+                                            "issuer_dn": "C=BE, O=GlobalSign nv-sa, OU=Root CA, CN=GlobalSign Root CA"
+                                        }
+                                    ]
+                                },
+                                "_encoding": {
+                                    "ja3s": "DISPLAY_HEX"
+                                },
+                                "ja3s": "d75f9129bb5d05492a65ff78e081bcb2",
+                                "ja4s": "t130200_1303_234ea6891581",
+                                "versions": [
+                                    {
+                                        "tls_version": "TLSv1_3",
+                                        "_encoding": {
+                                            "ja3s": "DISPLAY_HEX"
+                                        },
+                                        "ja3s": "d75f9129bb5d05492a65ff78e081bcb2",
+                                        "ja4s": "t130200_1303_234ea6891581"
+                                    },
+                                    {
+                                        "tls_version": "TLSv1_2",
+                                        "_encoding": {
+                                            "ja3s": "DISPLAY_HEX"
+                                        },
+                                        "ja3s": "d25619cb77d3219fc9fc14cb6b35eacc",
+                                        "ja4s": "t120200_cca8_344b4dce5a52"
+                                    }
+                                ]
+                            },
+                            "transport_protocol": "TCP",
+                            "truncated": false
+                        },
+                        {
+                            "_decoded": "banner_grab",
+                            "_encoding": {
+                                "banner": "DISPLAY_UTF8"
+                            },
+                            "banner": "",
+                            "banner_hashes": [
+                                "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                            ],
+                            "extended_service_name": "UNKNOWN",
+                            "observed_at": "2024-07-09T16:09:28.796760558Z",
+                            "perspective_id": "PERSPECTIVE_HE",
+                            "port": 443,
+                            "service_name": "UNKNOWN",
+                            "source_ip": "162.142.125.198",
+                            "transport_fingerprint": {
+                                "quic": {
+                                    "versions": [
+                                        1,
+                                        4278190109,
+                                        1362113840,
+                                        176863754,
+                                        1362113590,
+                                        1362113587
+                                    ]
+                                }
+                            },
+                            "transport_protocol": "QUIC",
+                            "truncated": false
+                        },
+                        {
+                            "_decoded": "banner_grab",
+                            "_encoding": {
+                                "banner": "DISPLAY_UTF8",
+                                "certificate": "DISPLAY_HEX"
+                            },
+                            "banner": "",
+                            "banner_hashes": [
+                                "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                            ],
+                            "certificate": "f5b58b959d31c752b53fd1b61523778f11f19035e72ba1448fba6b1ff2c70172",
+                            "extended_service_name": "UNKNOWN",
+                            "jarm": {
+                                "_encoding": {
+                                    "fingerprint": "DISPLAY_HEX",
+                                    "cipher_and_version_fingerprint": "DISPLAY_HEX",
+                                    "tls_extensions_sha256": "DISPLAY_HEX"
+                                },
+                                "fingerprint": "29d3fd00029d29d00042d43d00041df6ab62833359bd21fbf27287504787f8",
+                                "cipher_and_version_fingerprint": "29d3fd00029d29d00042d43d00041d",
+                                "tls_extensions_sha256": "f6ab62833359bd21fbf27287504787f8",
+                                "observed_at": "2024-07-10T16:55:57.284372022Z"
+                            },
+                            "observed_at": "2024-07-10T14:20:11.026443778Z",
+                            "perspective_id": "PERSPECTIVE_ORANGE",
+                            "port": 853,
+                            "service_name": "UNKNOWN",
+                            "source_ip": "167.94.145.96",
+                            "tls": {
+                                "version_selected": "TLSv1_3",
+                                "cipher_selected": "TLS_CHACHA20_POLY1305_SHA256",
+                                "certificates": {
+                                    "_encoding": {
+                                        "leaf_fp_sha_256": "DISPLAY_HEX",
+                                        "chain_fps_sha_256": "DISPLAY_HEX"
+                                    },
+                                    "leaf_fp_sha_256": "f5b58b959d31c752b53fd1b61523778f11f19035e72ba1448fba6b1ff2c70172",
+                                    "chain_fps_sha_256": [
+                                        "e6fe22bf45e4f0d3b85c59e02c0f495418e1eb8d3210f788d48cd5e1cb547cd4",
+                                        "3ee0278df71fa3c125c4cd487f01d774694e6fc57e0cd94c24efd769133918e5"
+                                    ],
+                                    "leaf_data": {
+                                        "names": [
+                                            "*.dns.google.com",
+                                            "8.8.4.4",
+                                            "8.8.8.8",
+                                            "8888.google",
+                                            "dns.google",
+                                            "dns.google.com",
+                                            "dns64.dns.google"
+                                        ],
+                                        "subject_dn": "CN=dns.google",
+                                        "issuer_dn": "C=US, O=Google Trust Services, CN=WR2",
+                                        "pubkey_bit_size": 2048,
+                                        "pubkey_algorithm": "RSA",
+                                        "tbs_fingerprint": "967263d1be68208d901d5946a068152a2d8cc2f2ac6f37ea5616eb728a046ec1",
+                                        "fingerprint": "f5b58b959d31c752b53fd1b61523778f11f19035e72ba1448fba6b1ff2c70172",
+                                        "issuer": {
+                                            "common_name": [
+                                                "WR2"
+                                            ],
+                                            "organization": [
+                                                "Google Trust Services"
+                                            ],
+                                            "country": [
+                                                "US"
+                                            ]
+                                        },
+                                        "subject": {
+                                            "common_name": [
+                                                "dns.google"
+                                            ]
+                                        },
+                                        "public_key": {
+                                            "key_algorithm": "RSA",
+                                            "rsa": {
+                                                "_encoding": {
+                                                    "modulus": "DISPLAY_BASE64",
+                                                    "exponent": "DISPLAY_BASE64"
+                                                },
+                                                "modulus": "udPleh5PMftF1SMpvlrBoIAxSj11MsBimOND5VSMURk9SE1YOF/RvWhwv74Y3J0uD6CWWSSXt+ykbv8tZuSSxYtLE5WReNC0Zuvxf6q3xJ8YWVTFyGg4bGNT7z4j/MywD7sdoSkEVnzkhuGazXvQhDTXrK//buwJLmsUScfYXHTHWirbgxat2KZ44gU60MFFCHfVe7PBNd16Fe0ZcVXfECROnyml71Uvjq+QsrW1nKYr3ClFRaCtZ99Slw48Ush/HT7DcuCn/FA8HusEN+Tz9FexukabIhKp/DnbjTg6neJ6anEg/osjphj2DTkxLY4ZbRwABFAbySF6luLYJ4NKfQ==",
+                                                "exponent": "AAEAAQ==",
+                                                "length": 256
+                                            },
+                                            "fingerprint": "1b94764e1e5466dd1162bd0b91bcc5cf96145a8d01bfa6b0401039e2ddc1690c"
+                                        },
+                                        "signature": {
+                                            "signature_algorithm": "SHA256-RSA",
+                                            "self_signed": false
+                                        }
+                                    },
+                                    "chain": [
+                                        {
+                                            "fingerprint": "e6fe22bf45e4f0d3b85c59e02c0f495418e1eb8d3210f788d48cd5e1cb547cd4",
+                                            "subject_dn": "C=US, O=Google Trust Services, CN=WR2",
+                                            "issuer_dn": "C=US, O=Google Trust Services LLC, CN=GTS Root R1"
+                                        },
+                                        {
+                                            "fingerprint": "3ee0278df71fa3c125c4cd487f01d774694e6fc57e0cd94c24efd769133918e5",
+                                            "subject_dn": "C=US, O=Google Trust Services LLC, CN=GTS Root R1",
+                                            "issuer_dn": "C=BE, O=GlobalSign nv-sa, OU=Root CA, CN=GlobalSign Root CA"
+                                        }
+                                    ]
+                                },
+                                "_encoding": {
+                                    "ja3s": "DISPLAY_HEX"
+                                },
+                                "ja3s": "d75f9129bb5d05492a65ff78e081bcb2",
+                                "ja4s": "t130200_1303_234ea6891581",
+                                "versions": [
+                                    {
+                                        "tls_version": "TLSv1_3",
+                                        "_encoding": {
+                                            "ja3s": "DISPLAY_HEX"
+                                        },
+                                        "ja3s": "d75f9129bb5d05492a65ff78e081bcb2",
+                                        "ja4s": "t130200_1303_234ea6891581"
+                                    },
+                                    {
+                                        "tls_version": "TLSv1_2",
+                                        "_encoding": {
+                                            "ja3s": "DISPLAY_HEX"
+                                        },
+                                        "ja3s": "d25619cb77d3219fc9fc14cb6b35eacc",
+                                        "ja4s": "t120200_cca8_344b4dce5a52"
+                                    }
+                                ]
+                            },
+                            "transport_fingerprint": {
+                                "raw": "65535,64,true,MSTNW,1412,false,false"
+                            },
+                            "transport_protocol": "TCP",
+                            "truncated": false
+                        }
+                    ],
+                    "location": {
+                        "continent": "North America",
+                        "country": "United States",
+                        "country_code": "US",
+                        "city": "Mountain View",
+                        "postal_code": "94043",
+                        "timezone": "America/Los_Angeles",
+                        "province": "California",
+                        "coordinates": {
+                            "latitude": 37.4056,
+                            "longitude": -122.0775
+                        }
+                    },
+                    "location_updated_at": "2024-07-03T01:03:02.565581291Z",
+                    "autonomous_system": {
+                        "asn": 15169,
+                        "description": "GOOGLE",
+                        "bgp_prefix": "8.8.8.0/24",
+                        "name": "GOOGLE",
+                        "country_code": "US"
+                    },
+                    "autonomous_system_updated_at": "2024-06-27T10:04:19.784028638Z",
+                    "whois": {
+                        "network": {
+                            "handle": "GOGL",
+                            "name": "Google LLC",
+                            "cidrs": [
+                                "8.8.8.0/24"
+                            ],
+                            "created": "2023-12-28T00:00:00Z",
+                            "updated": "2023-12-28T00:00:00Z",
+                            "allocation_type": "ALLOCATION"
+                        },
+                        "organization": {
+                            "handle": "GOGL",
+                            "name": "Google LLC",
+                            "street": "1600 Amphitheatre Parkway",
+                            "city": "Mountain View",
+                            "state": "CA",
+                            "postal_code": "94043",
+                            "country": "US",
+                            "abuse_contacts": [
+                                {
+                                    "handle": "ABUSE5250-ARIN",
+                                    "name": "Abuse",
+                                    "email": "network-abuse@google.com"
+                                }
+                            ],
+                            "admin_contacts": [
+                                {
+                                    "handle": "ZG39-ARIN",
+                                    "name": "Google LLC",
+                                    "email": "arin-contact@google.com"
+                                }
+                            ],
+                            "tech_contacts": [
+                                {
+                                    "handle": "ZG39-ARIN",
+                                    "name": "Google LLC",
+                                    "email": "arin-contact@google.com"
+                                }
+                            ]
+                        }
+                    },
+                    "dns": {
+                        "names": [
+                            "ioh.me",
+                            "www.21vek-14347.21vek-dev.by",
+                            "ibukito.hjk.jp",
+                            "21vek-api-374.21vek-dev.by",
+                            "21vek-7347.21vek-dev.by",
+                            "prod.rialtic.app",
+                            "yourserverpromo.de",
+                            "lookgood.synology.me",
+                            "optelcloud.com",
+                            "www.21vek-8549.21vek-dev.by",
+                            "httpbin.21vek-11482.21vek-dev.by",
+                            "www.21vek-11505.21vek-dev.by",
+                            "www.21vek-11322.21vek-dev.by",
+                            "acceleratorlabs.ca",
+                            "21vek-11368.21vek-dev.by",
+                            "shwu.me",
+                            "sigmainternacional.com",
+                            "comistan.synology.me",
+                            "m.21vek-14040.21vek-dev.by",
+                            "21vek-11459.21vek-dev.by",
+                            "www.21vek-2823.21vek-dev.by",
+                            "21vek-4065.21vek-dev.by",
+                            "gate.21vek-13570.21vek-dev.by",
+                            "httpbin.21vek-5374.21vek-dev.by",
+                            "aaimindustry.work.gd",
+                            "alucitra.com",
+                            "httpbin.21vek-11313.21vek-dev.by",
+                            "code.r4b2.de",
+                            "fdc.nextadv.it",
+                            "anscln.gdcsoluciones.com",
+                            "www.21vek-11453.21vek-dev.by",
+                            "yun.ayakasuki.com",
+                            "api.21vek-13593.21vek-dev.by",
+                            "deltajobseurope.com",
+                            "httpbin.21vek-8583.21vek-dev.by",
+                            "mws-dev.taiceredigion.org.uk",
+                            "www.go4web.se",
+                            "upadmini.people.aws.dev",
+                            "0310.fun",
+                            "m.21vek-1405.21vek-dev.by",
+                            "www.21vek-3185.21vek-dev.by",
+                            "httpbin.21vek-11299.21vek-dev.by",
+                            "www.sponify.uk",
+                            "www.21vek-3542.21vek-dev.by",
+                            "www.21vek-13325.21vek-dev.by",
+                            "unmannedtechs.com",
+                            "httpbin.21vek-4738.21vek-dev.by",
+                            "smartmove.vn",
+                            "www.cdnteste.advendns.org",
+                            "htz.wtf",
+                            "argentustravel.com",
+                            "api.21vek-7341.21vek-dev.by",
+                            "21vek-2558.21vek-dev.by",
+                            "windblade.keylinksolutions.com",
+                            "scm.appservice-onprem-arc-5.k4apps-test.io",
+                            "m.21vek-11075.21vek-dev.by",
+                            "21vek-7012.21vek-dev.by",
+                            "homeassistant.workstations.dev",
+                            "ezip.com.co",
+                            "mysql.store.spotix.online",
+                            "21vek-11327.21vek-dev.by",
+                            "kimia.unsika.ac.id",
+                            "m.21vek-5024.21vek-dev.by",
+                            "m.21vek-3178.21vek-dev.by",
+                            "api.21vek-11322.21vek-dev.by",
+                            "gr7.sport-wire.com",
+                            "m.21vek-13460.21vek-dev.by",
+                            "21vek-api-3552.21vek-dev.by",
+                            "api.21vek-11490.21vek-dev.by",
+                            "dnslog.io",
+                            "21vek-532.21vek-dev.by",
+                            "21vek-4320.21vek-dev.by",
+                            "m.21vek-8519.21vek-dev.by",
+                            "210000.io",
+                            "www.imluck.vip",
+                            "m.21vek-13333.21vek-dev.by",
+                            "arbeitskrafte-polen.com",
+                            "fabio.nextadv.it",
+                            "21vek-7361.21vek-dev.by",
+                            "m.21vek-11340.21vek-dev.by",
+                            "mail.dpai.ma",
+                            "api.ec-cs.hellolori.com",
+                            "www.21vek-11309.21vek-dev.by",
+                            "hamzah.tik.my.id",
+                            "sigmale.fr",
+                            "21vek-api-2728.21vek-dev.by",
+                            "cdnssl.imaage.win",
+                            "www.21vek-15049.21vek-dev.by",
+                            "21vek-8593.21vek-dev.by",
+                            "21vek-14294.21vek-dev.by",
+                            "cepbahisgiris.org",
+                            "api.21vek-14957.21vek-dev.by",
+                            "m.21vek-14332.21vek-dev.by",
+                            "www.21vek-3932.21vek-dev.by",
+                            "auth.rd.miruho.com",
+                            "www.21vek-14919.21vek-dev.by",
+                            "21vek-7400.21vek-dev.by",
+                            "www.21vek-8259.21vek-dev.by",
+                            "www.unangbuongtrung.com.vn",
+                            "paces-test.dhcs.ca.gov"
+                        ],
+                        "records": {
+                            "21vek-api-2728.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-05-30T13:10:15.463472905Z"
+                            },
+                            "www.21vek-11453.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-05-30T13:10:24.645607045Z"
+                            },
+                            "21vek-532.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-05-30T13:10:20.323568318Z"
+                            },
+                            "0310.fun": {
+                                "record_type": "A",
+                                "resolved_at": "2024-07-02T20:27:18.374315661Z"
+                            },
+                            "optelcloud.com": {
+                                "record_type": "A",
+                                "resolved_at": "2024-06-29T16:39:25.315980439Z"
+                            },
+                            "argentustravel.com": {
+                                "record_type": "A",
+                                "resolved_at": "2024-07-01T14:18:32.888205263Z"
+                            },
+                            "prod.rialtic.app": {
+                                "record_type": "A",
+                                "resolved_at": "2024-06-30T12:23:28.280290013Z"
+                            },
+                            "code.r4b2.de": {
+                                "record_type": "A",
+                                "resolved_at": "2024-07-08T18:36:30.140677152Z"
+                            },
+                            "sigmainternacional.com": {
+                                "record_type": "A",
+                                "resolved_at": "2024-07-02T17:37:56.718491757Z"
+                            },
+                            "21vek-7361.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-05-30T13:10:20.707782208Z"
+                            },
+                            "httpbin.21vek-11299.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-06-21T12:59:14.594006115Z"
+                            },
+                            "httpbin.21vek-11482.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-05-30T13:10:24.888320369Z"
+                            },
+                            "www.sponify.uk": {
+                                "record_type": "A",
+                                "resolved_at": "2024-06-30T00:58:55.610592781Z"
+                            },
+                            "www.21vek-11322.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-05-30T13:10:22.923670335Z"
+                            },
+                            "m.21vek-14040.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-05-30T13:10:20.417798286Z"
+                            },
+                            "kimia.unsika.ac.id": {
+                                "record_type": "A",
+                                "resolved_at": "2024-05-30T20:00:18.478502845Z"
+                            },
+                            "21vek-14294.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-05-30T13:10:14.592412734Z"
+                            },
+                            "alucitra.com": {
+                                "record_type": "A",
+                                "resolved_at": "2024-07-01T13:24:02.263629588Z"
+                            },
+                            "api.21vek-11322.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-05-30T13:10:22.886135986Z"
+                            },
+                            "arbeitskrafte-polen.com": {
+                                "record_type": "A",
+                                "resolved_at": "2024-07-03T14:33:24.463838236Z"
+                            },
+                            "m.21vek-3178.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-05-30T13:10:14.932084757Z"
+                            },
+                            "www.21vek-14347.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-05-30T13:10:15.485232646Z"
+                            },
+                            "dnslog.io": {
+                                "record_type": "A",
+                                "resolved_at": "2024-07-06T20:49:40.843784762Z"
+                            },
+                            "www.21vek-13325.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-05-30T13:10:14.826120214Z"
+                            },
+                            "upadmini.people.aws.dev": {
+                                "record_type": "A",
+                                "resolved_at": "2024-07-07T19:41:26.072013297Z"
+                            },
+                            "fdc.nextadv.it": {
+                                "record_type": "A",
+                                "resolved_at": "2024-07-09T21:45:24.086266355Z"
+                            },
+                            "m.21vek-11340.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-05-30T13:10:23.025555097Z"
+                            },
+                            "auth.rd.miruho.com": {
+                                "record_type": "A",
+                                "resolved_at": "2024-06-14T16:45:29.571753888Z"
+                            },
+                            "lookgood.synology.me": {
+                                "record_type": "A",
+                                "resolved_at": "2024-06-29T20:55:02.608391022Z"
+                            },
+                            "ezip.com.co": {
+                                "record_type": "A",
+                                "resolved_at": "2024-07-04T13:16:54.520994791Z"
+                            },
+                            "www.21vek-11505.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-05-30T13:10:25.110965884Z"
+                            },
+                            "anscln.gdcsoluciones.com": {
+                                "record_type": "A",
+                                "resolved_at": "2024-07-07T16:07:16.111968899Z"
+                            },
+                            "21vek-4320.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-05-30T13:10:14.926539936Z"
+                            },
+                            "yourserverpromo.de": {
+                                "record_type": "A",
+                                "resolved_at": "2024-06-07T19:17:34.104542163Z"
+                            },
+                            "21vek-4065.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-05-30T13:10:16.333287477Z"
+                            },
+                            "homeassistant.workstations.dev": {
+                                "record_type": "A",
+                                "resolved_at": "2024-07-08T19:17:20.808091895Z"
+                            },
+                            "www.21vek-8259.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-05-30T13:10:15.278857728Z"
+                            },
+                            "cdnssl.imaage.win": {
+                                "record_type": "A",
+                                "resolved_at": "2024-06-30T01:05:42.404587236Z"
+                            },
+                            "21vek-7347.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-05-30T13:10:20.559099506Z"
+                            },
+                            "api.21vek-13593.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-05-30T13:10:15.101804790Z"
+                            },
+                            "www.21vek-15049.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-05-30T13:10:20.369166550Z"
+                            },
+                            "21vek-api-3552.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-05-30T13:10:15.077946135Z"
+                            },
+                            "gate.21vek-13570.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-05-30T13:10:14.498415178Z"
+                            },
+                            "scm.appservice-onprem-arc-5.k4apps-test.io": {
+                                "record_type": "A",
+                                "resolved_at": "2024-06-19T20:20:18.087757658Z"
+                            },
+                            "paces-test.dhcs.ca.gov": {
+                                "record_type": "A",
+                                "resolved_at": "2024-06-28T20:40:22.138497043Z"
+                            },
+                            "comistan.synology.me": {
+                                "record_type": "A",
+                                "resolved_at": "2024-07-06T21:57:12.881017126Z"
+                            },
+                            "ioh.me": {
+                                "record_type": "A",
+                                "resolved_at": "2024-07-09T22:27:13.737538756Z"
+                            },
+                            "www.21vek-3542.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-05-30T13:10:14.903831459Z"
+                            },
+                            "api.21vek-7341.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-05-30T13:10:20.493999462Z"
+                            },
+                            "api.21vek-11490.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-05-30T13:10:25.043188493Z"
+                            },
+                            "shwu.me": {
+                                "record_type": "A",
+                                "resolved_at": "2024-07-08T21:02:13.777081054Z"
+                            },
+                            "mail.dpai.ma": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-07-09T22:26:31.399734311Z"
+                            },
+                            "m.21vek-8519.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-05-30T13:10:20.170043895Z"
+                            },
+                            "m.21vek-1405.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-05-30T13:10:20.678435610Z"
+                            },
+                            "21vek-2558.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-05-30T13:10:15.622656531Z"
+                            },
+                            "yun.ayakasuki.com": {
+                                "record_type": "A",
+                                "resolved_at": "2024-07-03T14:38:07.972265794Z"
+                            },
+                            "ibukito.hjk.jp": {
+                                "record_type": "A",
+                                "resolved_at": "2024-06-21T21:50:22.606367997Z"
+                            },
+                            "aaimindustry.work.gd": {
+                                "record_type": "A",
+                                "resolved_at": "2024-07-07T20:11:05.623237315Z"
+                            },
+                            "www.21vek-3932.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-07-08T12:53:48.591414778Z"
+                            },
+                            "www.21vek-14919.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-05-30T13:10:15.964905843Z"
+                            },
+                            "21vek-7012.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-05-30T13:10:15.031033095Z"
+                            },
+                            "api.21vek-14957.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-07-09T13:07:32.494476579Z"
+                            },
+                            "httpbin.21vek-8583.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-05-30T13:10:23.627125055Z"
+                            },
+                            "cepbahisgiris.org": {
+                                "record_type": "A",
+                                "resolved_at": "2024-06-20T22:25:10.586598501Z"
+                            },
+                            "www.21vek-3185.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-05-30T13:10:15.080817399Z"
+                            },
+                            "www.cdnteste.advendns.org": {
+                                "record_type": "A",
+                                "resolved_at": "2024-07-08T23:53:13.520867855Z"
+                            },
+                            "www.21vek-2823.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-05-30T13:10:14.917861190Z"
+                            },
+                            "unmannedtechs.com": {
+                                "record_type": "A",
+                                "resolved_at": "2024-06-29T17:44:37.057024401Z"
+                            },
+                            "gr7.sport-wire.com": {
+                                "record_type": "A",
+                                "resolved_at": "2024-06-25T17:52:14.642321667Z"
+                            },
+                            "21vek-11459.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-05-30T13:10:24.713781690Z"
+                            },
+                            "www.unangbuongtrung.com.vn": {
+                                "record_type": "A",
+                                "resolved_at": "2024-06-25T01:18:58.949796278Z"
+                            },
+                            "21vek-11327.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-05-30T13:10:22.943924455Z"
+                            },
+                            "smartmove.vn": {
+                                "record_type": "A",
+                                "resolved_at": "2024-07-07T02:38:39.765358443Z"
+                            },
+                            "htz.wtf": {
+                                "record_type": "A",
+                                "resolved_at": "2024-06-08T01:58:15.643951981Z"
+                            },
+                            "21vek-api-374.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-05-30T13:10:15.345364904Z"
+                            },
+                            "api.ec-cs.hellolori.com": {
+                                "record_type": "A",
+                                "resolved_at": "2024-06-20T15:54:57.002289540Z"
+                            },
+                            "deltajobseurope.com": {
+                                "record_type": "A",
+                                "resolved_at": "2024-07-05T15:20:52.935308809Z"
+                            },
+                            "fabio.nextadv.it": {
+                                "record_type": "A",
+                                "resolved_at": "2024-06-30T21:07:40.087071862Z"
+                            },
+                            "acceleratorlabs.ca": {
+                                "record_type": "A",
+                                "resolved_at": "2024-05-30T13:11:04.348189799Z"
+                            },
+                            "21vek-8593.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-06-19T12:57:12.124860303Z"
+                            },
+                            "www.imluck.vip": {
+                                "record_type": "A",
+                                "resolved_at": "2024-07-01T02:38:54.701633792Z"
+                            },
+                            "mws-dev.taiceredigion.org.uk": {
+                                "record_type": "A",
+                                "resolved_at": "2024-07-07T02:29:58.434049486Z"
+                            },
+                            "m.21vek-5024.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-05-30T13:10:14.778566830Z"
+                            },
+                            "sigmale.fr": {
+                                "record_type": "A",
+                                "resolved_at": "2024-06-24T20:09:11.588198151Z"
+                            },
+                            "21vek-7400.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-05-30T13:10:15.031127466Z"
+                            },
+                            "httpbin.21vek-5374.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-05-30T13:10:14.781705180Z"
+                            },
+                            "m.21vek-13460.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-05-30T13:10:15.975542984Z"
+                            },
+                            "hamzah.tik.my.id": {
+                                "record_type": "A",
+                                "resolved_at": "2024-06-30T20:40:03.257113264Z"
+                            },
+                            "www.21vek-11309.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-05-30T13:10:22.844716800Z"
+                            },
+                            "m.21vek-14332.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-05-30T13:10:15.103328215Z"
+                            },
+                            "m.21vek-11075.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-05-30T13:10:15.079782437Z"
+                            },
+                            "m.21vek-13333.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-05-30T13:10:15.085008643Z"
+                            },
+                            "21vek-11368.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-05-30T13:10:23.289755827Z"
+                            },
+                            "210000.io": {
+                                "record_type": "A",
+                                "resolved_at": "2024-05-29T20:55:47.588382704Z"
+                            },
+                            "httpbin.21vek-11313.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-05-30T13:10:22.865149798Z"
+                            },
+                            "windblade.keylinksolutions.com": {
+                                "record_type": "A",
+                                "resolved_at": "2024-07-06T16:24:09.601580033Z"
+                            },
+                            "www.21vek-8549.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-05-30T13:10:23.128229718Z"
+                            },
+                            "mysql.store.spotix.online": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-06-29T23:35:15.249603547Z"
+                            },
+                            "httpbin.21vek-4738.21vek-dev.by": {
+                                "record_type": "CNAME",
+                                "resolved_at": "2024-05-30T13:10:15.223016237Z"
+                            },
+                            "www.go4web.se": {
+                                "record_type": "A",
+                                "resolved_at": "2024-07-07T01:47:28.770372809Z"
+                            }
+                        },
+                        "reverse_dns": {
+                            "names": [
+                                "dns.google"
+                            ],
+                            "resolved_at": "2024-06-28T12:38:02.168710826Z"
+                        }
+                    },
+                    "last_updated_at": "2024-07-11T04:05:12.135Z"
+                },
+                "zoomeye": {
+                    "error": "No data available"
+                },
+                "nmap": {
+                    "hostnames": [
+                        {
+                            "name": "",
+                            "type": ""
+                        }
+                    ],
+                    "addresses": {
+                        "ipv4": "8.8.8.8"
+                    },
+                    "vendor": {},
+                    "status": {
+                        "state": "up",
+                        "reason": "echo-reply"
+                    },
+                    "tcp": {
+                        "53": {
+                            "state": "open",
+                            "reason": "syn-ack",
+                            "name": "tcpwrapped",
+                            "product": "",
+                            "version": "",
+                            "extrainfo": "",
+                            "conf": "8",
+                            "cpe": ""
+                        },
+                        "443": {
+                            "state": "open",
+                            "reason": "syn-ack",
+                            "name": "https",
+                            "product": "HTTP server (unknown)",
+                            "version": "",
+                            "extrainfo": "",
+                            "conf": "10",
+                            "cpe": ""
+                        }
+                    }
+                },
+                "whois": {
+                    "domain_name": "dns.google",
+                    "registrar": "MarkMonitor Inc.",
+                    "whois_server": "whois.nic.google",
+                    "referral_url": null,
+                    "updated_date": "2024-03-20 10:02:54",
+                    "creation_date": "2018-04-16 22:57:01",
+                    "expiration_date": "2025-04-16 22:57:01",
+                    "name_servers": [
+                        "ns1.zdns.google",
+                        "ns2.zdns.google",
+                        "ns3.zdns.google",
+                        "ns4.zdns.google"
+                    ],
+                    "status": [
+                        "clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited",
+                        "clientTransferProhibited https://icann.org/epp#clientTransferProhibited",
+                        "clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited"
+                    ],
+                    "emails": "abusecomplaints@markmonitor.com",
+                    "dnssec": "signedDelegation",
+                    "name": "REDACTED FOR PRIVACY",
+                    "org": "Charleston Road Registry, Inc.",
+                    "address": "REDACTED FOR PRIVACY",
+                    "city": "REDACTED FOR PRIVACY",
+                    "state": "CA",
+                    "registrant_postal_code": "REDACTED FOR PRIVACY",
+                    "country": "US"
+                },
+                "geo": {
+                    "latitude": "37.4056",
+                    "longitude": "-122.0775"
+                }
+            },
+            "10.50.3.10": {
+                "censys": {
+                    "ip": "10.50.3.10",
+                    "services": []
+                },
+                "zoomeye": {
+                    "error": "No data available"
+                },
+                "nmap": {
+                    "hostnames": [
+                        {
+                            "name": "",
+                            "type": ""
+                        }
+                    ],
+                    "addresses": {
+                        "ipv4": "10.50.3.10"
+                    },
+                    "vendor": {},
+                    "status": {
+                        "state": "up",
+                        "reason": "reset"
+                    },
+                    "tcp": {
+                        "135": {
+                            "state": "filtered",
+                            "reason": "no-response",
+                            "name": "msrpc",
+                            "product": "",
+                            "version": "",
+                            "extrainfo": "",
+                            "conf": "3",
+                            "cpe": ""
+                        },
+                        "139": {
+                            "state": "filtered",
+                            "reason": "no-response",
+                            "name": "netbios-ssn",
+                            "product": "",
+                            "version": "",
+                            "extrainfo": "",
+                            "conf": "3",
+                            "cpe": ""
+                        },
+                        "445": {
+                            "state": "filtered",
+                            "reason": "no-response",
+                            "name": "microsoft-ds",
+                            "product": "",
+                            "version": "",
+                            "extrainfo": "",
+                            "conf": "3",
+                            "cpe": ""
+                        }
+                    }
+                },
+                "whois": {
+                    "domain_name": null,
+                    "registrar": null,
+                    "whois_server": null,
+                    "referral_url": null,
+                    "updated_date": null,
+                    "creation_date": null,
+                    "expiration_date": null,
+                    "name_servers": null,
+                    "status": null,
+                    "emails": "abuse@iana.org",
+                    "dnssec": null,
+                    "name": null,
+                    "org": null,
+                    "address": null,
+                    "city": null,
+                    "state": null,
+                    "registrant_postal_code": null,
+                    "country": null
+                },
+                "geo": {}
+            },
+            "190.22.160.1": {
+                "censys": {
+                    "ip": "190.22.160.1",
+                    "services": [],
+                    "location": {
+                        "continent": "South America",
+                        "country": "Chile",
+                        "country_code": "CL",
+                        "city": "Santiago",
+                        "postal_code": "8320000",
+                        "timezone": "America/Santiago",
+                        "province": "Santiago Metropolitan",
+                        "coordinates": {
+                            "latitude": -33.45694,
+                            "longitude": -70.64827
+                        }
+                    },
+                    "location_updated_at": "2024-07-11T04:01:30.884113429Z",
+                    "autonomous_system": {
+                        "asn": 7418,
+                        "description": "TELEFONICA CHILE S.A.",
+                        "bgp_prefix": "190.22.0.0/16",
+                        "name": "TELEFONICA CHILE S.A.",
+                        "country_code": "CL"
+                    },
+                    "autonomous_system_updated_at": "2024-07-11T04:01:30.884113429Z",
+                    "whois": {
+                        "network": {
+                            "handle": "TCS5",
+                            "name": "Movistar Fibra",
+                            "cidrs": [
+                                "190.22.128.0/18"
+                            ],
+                            "created": "2020-02-07T00:00:00Z",
+                            "updated": "2020-02-06T00:00:00Z"
+                        }
+                    },
+                    "last_updated_at": "2022-03-20T06:02:06.005Z"
+                },
+                "zoomeye": {
+                    "error": "No data available"
+                },
+                "nmap": {
+                    "hostnames": [
+                        {
+                            "name": "",
+                            "type": ""
+                        }
+                    ],
+                    "addresses": {
+                        "ipv4": "190.22.160.1"
+                    },
+                    "vendor": {},
+                    "status": {
+                        "state": "up",
+                        "reason": "echo-reply"
+                    },
+                    "tcp": {
+                        "22": {
+                            "state": "filtered",
+                            "reason": "no-response",
+                            "name": "ssh",
+                            "product": "",
+                            "version": "",
+                            "extrainfo": "",
+                            "conf": "3",
+                            "cpe": ""
+                        }
+                    }
+                },
+                "whois": {
+                    "domain_name": null,
+                    "registrar": null,
+                    "whois_server": null,
+                    "referral_url": null,
+                    "updated_date": null,
+                    "creation_date": null,
+                    "expiration_date": null,
+                    "name_servers": null,
+                    "status": "reallocated",
+                    "emails": [
+                        "whois-contact@lacnic.net",
+                        "abuse@lacnic.net",
+                        "tecnical.isp.movistar@gmail.com"
+                    ],
+                    "dnssec": null,
+                    "name": null,
+                    "org": null,
+                    "address": null,
+                    "city": null,
+                    "state": null,
+                    "registrant_postal_code": null,
+                    "country": null
+                },
+                "geo": {
+                    "latitude": "-33.4569",
+                    "longitude": "-70.6483"
+                }
+            },
             "192.168.1.1": {
                 "censys": {
                     "ip": "192.168.1.1",
@@ -544,10 +1927,10 @@
                     ],
                     "addresses": {
                         "ipv4": "192.168.1.1",
-                        "mac": "E4:AB:89:F9:DB:C0"
+                        "mac": "2C:96:82:10:22:70"
                     },
                     "vendor": {
-                        "E4:AB:89:F9:DB:C0": "MitraStar Technology"
+                        "2C:96:82:10:22:70": "MitraStar Technology"
                     },
                     "status": {
                         "state": "up",
@@ -618,952 +2001,6 @@
                 },
                 "geo": {}
             },
-            "212.133.24.90": {
-                "censys": {
-                    "ip": "212.133.24.90",
-                    "services": [],
-                    "location": {
-                        "continent": "Europe",
-                        "country": "Belgium",
-                        "country_code": "BE",
-                        "city": "Brussels",
-                        "postal_code": "1000",
-                        "timezone": "Europe/Brussels",
-                        "province": "Brussels Capital",
-                        "coordinates": {
-                            "latitude": 50.85045,
-                            "longitude": 4.34878
-                        }
-                    },
-                    "location_updated_at": "2024-07-06T08:11:43.099431014Z",
-                    "autonomous_system": {
-                        "asn": 3356,
-                        "description": "LEVEL3",
-                        "bgp_prefix": "212.133.0.0/17",
-                        "name": "LEVEL3",
-                        "country_code": "US"
-                    },
-                    "autonomous_system_updated_at": "2024-07-06T08:11:43.099431014Z",
-                    "whois": {
-                        "network": {
-                            "handle": "BRUSSELS-CUSTOMER-LINKS",
-                            "name": "CenturyLink Communications",
-                            "cidrs": [
-                                "212.133.24.0/24"
-                            ],
-                            "created": "2020-09-02T00:00:00Z",
-                            "updated": "2020-09-02T00:00:00Z"
-                        },
-                        "organization": {
-                            "handle": "ORG-LC4-RIPE",
-                            "name": "Lumen Technologies UK Limited",
-                            "address": "260-266 Goswell Road\\nEC1V 7EB\\nLondon\\nUNITED KINGDOM",
-                            "abuse_contacts": [
-                                {
-                                    "handle": "AR13812-RIPE",
-                                    "name": "Abuse-C Role",
-                                    "email": "dl-euipsa@level3.com"
-                                }
-                            ],
-                            "admin_contacts": [
-                                {
-                                    "handle": "CA6812-RIPE",
-                                    "name": "Cephas Amedoda",
-                                    "email": "cephas.amedoda@level3.com"
-                                },
-                                {
-                                    "handle": "GF4648-RIPE",
-                                    "name": "Greg Farrell",
-                                    "email": "ripehostmaster@eu.level3.net"
-                                },
-                                {
-                                    "handle": "LTEE",
-                                    "name": "Lumen Technologies Uk Limited",
-                                    "email": "dl-euipsa@centurylink.com"
-                                },
-                                {
-                                    "handle": "LTHM",
-                                    "name": "LEVEL3 Hostmaster",
-                                    "email": "dl-euipsa@centurylink.com"
-                                },
-                                {
-                                    "handle": "NZ74-RIPE",
-                                    "name": "Naim Zaimi",
-                                    "email": "naim.zaimi@colt.net"
-                                }
-                            ]
-                        }
-                    }
-                },
-                "zoomeye": {
-                    "error": "No data available"
-                },
-                "nmap": {
-                    "hostnames": [
-                        {
-                            "name": "",
-                            "type": ""
-                        }
-                    ],
-                    "addresses": {
-                        "ipv4": "212.133.24.90"
-                    },
-                    "vendor": {},
-                    "status": {
-                        "state": "up",
-                        "reason": "echo-reply"
-                    }
-                },
-                "whois": {
-                    "domain_name": [
-                        "LEVEL3.NET",
-                        "level3.net"
-                    ],
-                    "registrar": "MarkMonitor, Inc.",
-                    "whois_server": "whois.markmonitor.com",
-                    "referral_url": null,
-                    "updated_date": [
-                        "2024-02-28 09:44:12",
-                        "2024-02-28 09:44:12+00:00"
-                    ],
-                    "creation_date": [
-                        "1998-04-01 05:00:00",
-                        "1998-04-01 08:00:00+00:00"
-                    ],
-                    "expiration_date": [
-                        "2025-03-31 04:00:00",
-                        "2025-03-31 00:00:00+00:00"
-                    ],
-                    "name_servers": [
-                        "NS1.L3.NET",
-                        "NS2.L3.NET",
-                        "ns1.l3.net",
-                        "ns2.l3.net"
-                    ],
-                    "status": [
-                        "clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited",
-                        "clientTransferProhibited https://icann.org/epp#clientTransferProhibited",
-                        "clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited",
-                        "clientUpdateProhibited (https://www.icann.org/epp#clientUpdateProhibited)",
-                        "clientTransferProhibited (https://www.icann.org/epp#clientTransferProhibited)",
-                        "clientDeleteProhibited (https://www.icann.org/epp#clientDeleteProhibited)"
-                    ],
-                    "emails": [
-                        "abusecomplaints@markmonitor.com",
-                        "domains@lumen.com",
-                        "whoisrequest@markmonitor.com"
-                    ],
-                    "dnssec": "unsigned",
-                    "name": "Domain Administrator",
-                    "org": "Level 3 Communications, LLC",
-                    "address": "1025 El Dorado Blvd.,",
-                    "city": "Broomfield",
-                    "state": "CO",
-                    "registrant_postal_code": "80021",
-                    "country": "US"
-                },
-                "geo": {
-                    "latitude": "50.8505",
-                    "longitude": "4.3488"
-                }
-            },
-            "213.140.39.160": {
-                "censys": {
-                    "ip": "213.140.39.160",
-                    "services": [],
-                    "location": {
-                        "continent": "South America",
-                        "country": "Chile",
-                        "country_code": "CL",
-                        "city": "Santiago",
-                        "postal_code": "8320000",
-                        "timezone": "America/Santiago",
-                        "province": "Santiago Metropolitan",
-                        "coordinates": {
-                            "latitude": -33.45694,
-                            "longitude": -70.64827
-                        }
-                    },
-                    "location_updated_at": "2024-07-06T08:15:41.007252356Z",
-                    "autonomous_system": {
-                        "asn": 12956,
-                        "description": "TELXIUS TELXIUS Cable",
-                        "bgp_prefix": "213.140.32.0/19",
-                        "name": "TELXIUS TELXIUS Cable",
-                        "country_code": "ES"
-                    },
-                    "autonomous_system_updated_at": "2024-07-06T08:15:41.007252356Z",
-                    "whois": {
-                        "network": {
-                            "handle": "TDATANET",
-                            "name": "Telefonica International Wholesale Network",
-                            "cidrs": [
-                                "213.140.32.0/20"
-                            ],
-                            "created": "2001-11-28T00:00:00Z",
-                            "updated": "2005-04-20T00:00:00Z"
-                        },
-                        "organization": {
-                            "handle": "ORG-TDC1-RIPE",
-                            "name": "TELEFONICA GLOBAL SOLUTIONS SL",
-                            "address": "Cl Ronda de la Comunicacion s/n, Edificio Oeste 3, Planta 2\\n28050\\nMadrid\\nSPAIN",
-                            "abuse_contacts": [
-                                {
-                                    "handle": "TG171-RIPE",
-                                    "name": "TDATANET GROUP",
-                                    "email": "ip_coord.globalsolutions@telefonica.com"
-                                }
-                            ],
-                            "admin_contacts": [
-                                {
-                                    "handle": "TG171-RIPE",
-                                    "name": "TDATANET GROUP",
-                                    "email": "ip_coord.globalsolutions@telefonica.com"
-                                }
-                            ]
-                        }
-                    }
-                },
-                "zoomeye": {
-                    "error": "No data available"
-                },
-                "nmap": {
-                    "hostnames": [
-                        {
-                            "name": "",
-                            "type": ""
-                        }
-                    ],
-                    "addresses": {
-                        "ipv4": "213.140.39.160"
-                    },
-                    "vendor": {},
-                    "status": {
-                        "state": "up",
-                        "reason": "echo-reply"
-                    }
-                },
-                "whois": {
-                    "domain_name": null,
-                    "registrar": null,
-                    "whois_server": null,
-                    "referral_url": null,
-                    "updated_date": null,
-                    "creation_date": null,
-                    "expiration_date": null,
-                    "name_servers": null,
-                    "status": "ASSIGNED PA",
-                    "emails": [
-                        "hostmaster@ripe.net",
-                        "abuse@ripe.net",
-                        "'abuse.businesssolutions@telefonica.com",
-                        "security.businesssolutions@telefonica.com",
-                        "abuse.businesssolutions@telefonica.com"
-                    ],
-                    "dnssec": null,
-                    "name": null,
-                    "org": null,
-                    "address": null,
-                    "city": null,
-                    "state": null,
-                    "registrant_postal_code": null,
-                    "country": null
-                },
-                "geo": {
-                    "latitude": "-33.4569",
-                    "longitude": "-70.6483"
-                }
-            },
-            "171.75.8.23": {
-                "censys": {
-                    "ip": "171.75.8.23",
-                    "services": [],
-                    "location": {
-                        "continent": "Europe",
-                        "country": "Belgium",
-                        "country_code": "BE",
-                        "city": "Brussels",
-                        "postal_code": "1000",
-                        "timezone": "Europe/Brussels",
-                        "province": "Brussels Capital",
-                        "coordinates": {
-                            "latitude": 50.85045,
-                            "longitude": 4.34878
-                        }
-                    },
-                    "location_updated_at": "2024-07-06T08:16:30.867063434Z",
-                    "autonomous_system": {
-                        "asn": 3356,
-                        "description": "LEVEL3",
-                        "bgp_prefix": "171.75.0.0/16",
-                        "name": "LEVEL3",
-                        "country_code": "US"
-                    },
-                    "autonomous_system_updated_at": "2024-07-06T08:16:30.867063434Z",
-                    "whois": {
-                        "network": {
-                            "handle": "UK-LVLT-19940225",
-                            "name": "Lumen Technologies UK Limited",
-                            "cidrs": [
-                                "171.75.0.0/16"
-                            ],
-                            "created": "2024-01-29T00:00:00Z",
-                            "updated": "2024-01-29T00:00:00Z"
-                        },
-                        "organization": {
-                            "handle": "ORG-LC4-RIPE",
-                            "name": "Lumen Technologies UK Limited",
-                            "address": "260-266 Goswell Road\\nEC1V 7EB\\nLondon\\nUNITED KINGDOM",
-                            "abuse_contacts": [
-                                {
-                                    "handle": "AR13812-RIPE",
-                                    "name": "Abuse-C Role",
-                                    "email": "dl-euipsa@level3.com"
-                                }
-                            ],
-                            "admin_contacts": [
-                                {
-                                    "handle": "CA6812-RIPE",
-                                    "name": "Cephas Amedoda",
-                                    "email": "cephas.amedoda@level3.com"
-                                },
-                                {
-                                    "handle": "GF4648-RIPE",
-                                    "name": "Greg Farrell",
-                                    "email": "ripehostmaster@eu.level3.net"
-                                },
-                                {
-                                    "handle": "LTEE",
-                                    "name": "Lumen Technologies Uk Limited",
-                                    "email": "dl-euipsa@centurylink.com"
-                                },
-                                {
-                                    "handle": "LTHM",
-                                    "name": "LEVEL3 Hostmaster",
-                                    "email": "dl-euipsa@centurylink.com"
-                                },
-                                {
-                                    "handle": "NZ74-RIPE",
-                                    "name": "Naim Zaimi",
-                                    "email": "naim.zaimi@colt.net"
-                                }
-                            ]
-                        }
-                    }
-                },
-                "zoomeye": {
-                    "error": "No data available"
-                },
-                "nmap": {
-                    "hostnames": [
-                        {
-                            "name": "",
-                            "type": ""
-                        }
-                    ],
-                    "addresses": {
-                        "ipv4": "171.75.8.23"
-                    },
-                    "vendor": {},
-                    "status": {
-                        "state": "up",
-                        "reason": "echo-reply"
-                    }
-                },
-                "whois": {
-                    "domain_name": [
-                        "COLT.NET",
-                        "colt.net"
-                    ],
-                    "registrar": "PSI-USA, Inc. dba Domain Robot",
-                    "whois_server": "whois.psi-usa.info",
-                    "referral_url": null,
-                    "updated_date": [
-                        "2023-12-06 08:01:39",
-                        "2024-07-01 17:22:52"
-                    ],
-                    "creation_date": "1996-12-06 05:00:00",
-                    "expiration_date": [
-                        "2024-12-05 05:00:00",
-                        "2024-12-31 23:00:00"
-                    ],
-                    "name_servers": [
-                        "NS2.COLT.NET",
-                        "NS3.COLT.NET",
-                        "NS4.COLT.NET",
-                        "ns2.colt.net 212.74.77.54",
-                        "ns3.colt.net 212.74.78.54",
-                        "ns4.colt.net 212.74.78.47"
-                    ],
-                    "status": [
-                        "clientTransferProhibited https://icann.org/epp#clientTransferProhibited",
-                        "clientTransferProhibited https://www.icann.org/epp#clientTransferProhibited"
-                    ],
-                    "emails": [
-                        "domain-abuse@psi-usa.info",
-                        "eudnsmaster@colt.net",
-                        "dns-requests@colt.net"
-                    ],
-                    "dnssec": "unsigned",
-                    "name": "Colt Technology Services",
-                    "org": "Colt Technology Services",
-                    "address": [
-                        "Beaufort House",
-                        "15 St Botolph Street"
-                    ],
-                    "city": "London",
-                    "state": "UK",
-                    "registrant_postal_code": "EC3A 7QN",
-                    "country": "GB"
-                },
-                "geo": {
-                    "latitude": "50.8505",
-                    "longitude": "4.3488"
-                }
-            },
-            "130.104.228.159": {
-                "censys": {
-                    "ip": "130.104.228.159",
-                    "services": [
-                        {
-                            "_decoded": "dns",
-                            "_encoding": {
-                                "banner": "DISPLAY_UTF8",
-                                "banner_hex": "DISPLAY_HEX"
-                            },
-                            "banner": "Atlas Anchor 0.1",
-                            "banner_hashes": [
-                                "sha256:0b8e26e976f42db9760c66ea798332f3b7c1c177025315934d4c36c8646a35d6"
-                            ],
-                            "banner_hex": "41746c617320416e63686f7220302e31",
-                            "discovery_method": "PREDICTIVE_METHOD_7",
-                            "dns": {
-                                "version": "Atlas Anchor 0.1",
-                                "server_type": "AUTHORITATIVE",
-                                "r_code": "REFUSED",
-                                "resolves_correctly": false
-                            },
-                            "extended_service_name": "DNS",
-                            "observed_at": "2024-07-05T22:48:25.972560770Z",
-                            "perspective_id": "PERSPECTIVE_HE",
-                            "port": 53,
-                            "service_name": "DNS",
-                            "software": [
-                                {
-                                    "uniform_resource_identifier": "cpe:2.3:a:ripe:dns:0.1:*:*:*:*:*:*:*",
-                                    "part": "a",
-                                    "vendor": "RIPE",
-                                    "product": "DNS",
-                                    "version": "0.1",
-                                    "other": {
-                                        "family": "Atlas Anchor"
-                                    },
-                                    "source": "OSI_APPLICATION_LAYER"
-                                }
-                            ],
-                            "source_ip": "162.142.125.217",
-                            "transport_protocol": "UDP",
-                            "truncated": false
-                        },
-                        {
-                            "_decoded": "http",
-                            "_encoding": {
-                                "banner": "DISPLAY_UTF8",
-                                "banner_hex": "DISPLAY_HEX"
-                            },
-                            "banner": "HTTP/1.1 200 OK\r\nServer: nginx/1.20.1\r\nDate:  <REDACTED>\r\nContent-Type: text/html\r\nTransfer-Encoding: chunked\r\nConnection: keep-alive\r\n",
-                            "banner_hashes": [
-                                "sha256:2bf4c27abdd5c79629250650ebd6302119f4a85560798c5fb3c9a697fdf09681"
-                            ],
-                            "banner_hex": "485454502f312e3120323030204f4b0d0a5365727665723a206e67696e782f312e32302e310d0a446174653a20203c52454441435445443e0d0a436f6e74656e742d547970653a20746578742f68746d6c0d0a5472616e736665722d456e636f64696e673a206368756e6b65640d0a436f6e6e656374696f6e3a206b6565702d616c6976650d0a",
-                            "discovery_method": "IPV4_WALK_FULL_PRIORITY_1",
-                            "extended_service_name": "HTTP",
-                            "http": {
-                                "request": {
-                                    "method": "GET",
-                                    "uri": "http://130.104.228.159/",
-                                    "headers": {
-                                        "User_Agent": [
-                                            "Mozilla/5.0 (compatible; CensysInspect/1.1; +https://about.censys.io/)"
-                                        ],
-                                        "_encoding": {
-                                            "User_Agent": "DISPLAY_UTF8",
-                                            "Accept": "DISPLAY_UTF8"
-                                        },
-                                        "Accept": [
-                                            "*/*"
-                                        ]
-                                    }
-                                },
-                                "response": {
-                                    "protocol": "HTTP/1.1",
-                                    "status_code": 200,
-                                    "status_reason": "OK",
-                                    "headers": {
-                                        "Date": [
-                                            "<REDACTED>"
-                                        ],
-                                        "_encoding": {
-                                            "Date": "DISPLAY_UTF8",
-                                            "Server": "DISPLAY_UTF8",
-                                            "Transfer_Encoding": "DISPLAY_UTF8",
-                                            "Content_Type": "DISPLAY_UTF8",
-                                            "Connection": "DISPLAY_UTF8"
-                                        },
-                                        "Server": [
-                                            "nginx/1.20.1"
-                                        ],
-                                        "Transfer_Encoding": [
-                                            "chunked"
-                                        ],
-                                        "Content_Type": [
-                                            "text/html"
-                                        ],
-                                        "Connection": [
-                                            "keep-alive"
-                                        ]
-                                    },
-                                    "body_size": 94,
-                                    "_encoding": {
-                                        "body": "DISPLAY_UTF8",
-                                        "body_hash": "DISPLAY_UTF8"
-                                    },
-                                    "body": "{\"anchor\":\"be-lln-as2611-client.anchors.atlas.ripe.net\",\"client\":\"167.94.146.54\",\"payload\":\"\"}",
-                                    "body_hashes": [
-                                        "sha256:002c063efcfa560ea4e7af0933830941d046ca6415a467e6d968a7f5a68c9e17",
-                                        "sha1:2d8a321e750ffee61f68873acf57bec12d52dd9a"
-                                    ],
-                                    "body_hash": "sha1:2d8a321e750ffee61f68873acf57bec12d52dd9a"
-                                },
-                                "supports_http2": false
-                            },
-                            "observed_at": "2024-07-06T07:00:15.313927717Z",
-                            "perspective_id": "PERSPECTIVE_TELIA",
-                            "port": 80,
-                            "service_name": "HTTP",
-                            "software": [
-                                {
-                                    "uniform_resource_identifier": "cpe:2.3:a:f5:nginx:1.20.1:*:*:*:*:*:*:*",
-                                    "part": "a",
-                                    "vendor": "nginx",
-                                    "product": "nginx",
-                                    "version": "1.20.1",
-                                    "other": {
-                                        "family": "nginx"
-                                    },
-                                    "source": "OSI_APPLICATION_LAYER"
-                                }
-                            ],
-                            "source_ip": "167.94.146.54",
-                            "transport_protocol": "TCP",
-                            "truncated": false
-                        },
-                        {
-                            "_decoded": "http",
-                            "_encoding": {
-                                "banner": "DISPLAY_UTF8",
-                                "banner_hex": "DISPLAY_HEX"
-                            },
-                            "banner": "HTTP/1.1 400 Bad Request\r\nServer: nginx/1.20.1\r\nDate:  <REDACTED>\r\nContent-Type: text/html\r\nContent-Length: 255\r\nConnection: close\r\n",
-                            "banner_hashes": [
-                                "sha256:3b7c768fd7dc0cdda751db228c75489bc974c735d92452c4a5088b63eddfcdb3"
-                            ],
-                            "banner_hex": "485454502f312e31203430302042616420526571756573740d0a5365727665723a206e67696e782f312e32302e310d0a446174653a20203c52454441435445443e0d0a436f6e74656e742d547970653a20746578742f68746d6c0d0a436f6e74656e742d4c656e6774683a203235350d0a436f6e6e656374696f6e3a20636c6f73650d0a",
-                            "discovery_method": "IPV4_WALK_FULL_PRIORITY_1",
-                            "extended_service_name": "HTTP",
-                            "http": {
-                                "request": {
-                                    "method": "GET",
-                                    "uri": "http://130.104.228.159:443/",
-                                    "headers": {
-                                        "User_Agent": [
-                                            "Mozilla/5.0 (compatible; CensysInspect/1.1; +https://about.censys.io/)"
-                                        ],
-                                        "_encoding": {
-                                            "User_Agent": "DISPLAY_UTF8",
-                                            "Accept": "DISPLAY_UTF8"
-                                        },
-                                        "Accept": [
-                                            "*/*"
-                                        ]
-                                    }
-                                },
-                                "response": {
-                                    "protocol": "HTTP/1.1",
-                                    "status_code": 400,
-                                    "status_reason": "Bad Request",
-                                    "headers": {
-                                        "Date": [
-                                            "<REDACTED>"
-                                        ],
-                                        "_encoding": {
-                                            "Date": "DISPLAY_UTF8",
-                                            "Server": "DISPLAY_UTF8",
-                                            "Content_Length": "DISPLAY_UTF8",
-                                            "Content_Type": "DISPLAY_UTF8",
-                                            "Connection": "DISPLAY_UTF8"
-                                        },
-                                        "Server": [
-                                            "nginx/1.20.1"
-                                        ],
-                                        "Content_Length": [
-                                            "255"
-                                        ],
-                                        "Content_Type": [
-                                            "text/html"
-                                        ],
-                                        "Connection": [
-                                            "close"
-                                        ]
-                                    },
-                                    "_encoding": {
-                                        "html_tags": "DISPLAY_UTF8",
-                                        "body": "DISPLAY_UTF8",
-                                        "body_hash": "DISPLAY_UTF8",
-                                        "html_title": "DISPLAY_UTF8"
-                                    },
-                                    "html_tags": [
-                                        "<title>400 The plain HTTP request was sent to HTTPS port</title>"
-                                    ],
-                                    "body_size": 255,
-                                    "body": "<html>\r\n<head><title>400 The plain HTTP request was sent to HTTPS port</title></head>\r\n<body>\r\n<center><h1>400 Bad Request</h1></center>\r\n<center>The plain HTTP request was sent to HTTPS port</center>\r\n<hr><center>nginx/1.20.1</center>\r\n</body>\r\n</html>\r\n",
-                                    "body_hashes": [
-                                        "sha256:6762d70fb83b108316d0beb769a63c393c4e63cc2387ce65858398ca6e67090e",
-                                        "sha1:802cab38498a68b42c6f49e4c3532cc43cccaad6"
-                                    ],
-                                    "body_hash": "sha1:802cab38498a68b42c6f49e4c3532cc43cccaad6",
-                                    "html_title": "400 The plain HTTP request was sent to HTTPS port"
-                                },
-                                "supports_http2": false
-                            },
-                            "observed_at": "2024-07-05T23:15:02.930059208Z",
-                            "perspective_id": "PERSPECTIVE_TATA",
-                            "port": 443,
-                            "service_name": "HTTP",
-                            "software": [
-                                {
-                                    "uniform_resource_identifier": "cpe:2.3:a:f5:nginx:1.20.1:*:*:*:*:*:*:*",
-                                    "part": "a",
-                                    "vendor": "nginx",
-                                    "product": "nginx",
-                                    "version": "1.20.1",
-                                    "other": {
-                                        "family": "nginx"
-                                    },
-                                    "source": "OSI_APPLICATION_LAYER"
-                                }
-                            ],
-                            "source_ip": "167.94.138.124",
-                            "transport_protocol": "TCP",
-                            "truncated": false
-                        }
-                    ],
-                    "location": {
-                        "continent": "Europe",
-                        "country": "Belgium",
-                        "country_code": "BE",
-                        "city": "Brussels",
-                        "postal_code": "1000",
-                        "timezone": "Europe/Brussels",
-                        "province": "Brussels Capital",
-                        "coordinates": {
-                            "latitude": 50.85045,
-                            "longitude": 4.34878
-                        }
-                    },
-                    "location_updated_at": "2024-07-05T00:33:00.633777367Z",
-                    "autonomous_system": {
-                        "asn": 2611,
-                        "description": "BELNET",
-                        "bgp_prefix": "130.104.0.0/16",
-                        "name": "BELNET",
-                        "country_code": "BE"
-                    },
-                    "autonomous_system_updated_at": "2024-07-05T00:33:00.633824998Z",
-                    "whois": {
-                        "network": {
-                            "handle": "NET-UCLOUVAIN-1",
-                            "name": "Universite Catholique de Louvain",
-                            "cidrs": [
-                                "130.104.0.0/16"
-                            ],
-                            "created": "1970-01-01T00:00:00Z",
-                            "updated": "2021-05-31T00:00:00Z"
-                        },
-                        "organization": {
-                            "handle": "ORG-UCL8-RIPE",
-                            "name": "Universite Catholique de Louvain",
-                            "address": "Universit\u00c3\u00a9 catholique de Louvain\\n1, Place de l'Universit\u00c3\u00a9\\nB-1348 Louvain-la-Neuve\\nBelgique - Belgium",
-                            "abuse_contacts": [
-                                {
-                                    "handle": "UCLA2-RIPE",
-                                    "name": "Universite Catholique de Louvain Abuse Contact",
-                                    "email": "abuse@uclouvain.be"
-                                }
-                            ],
-                            "admin_contacts": [
-                                {
-                                    "handle": "RDG417-RIPE",
-                                    "name": "Raoul De Guchteneere",
-                                    "email": "adminet@uclouvain.be"
-                                }
-                            ]
-                        }
-                    },
-                    "dns": {
-                        "names": [
-                            "be-lln-as2611-client.anchors.atlas.ripe.net",
-                            "ripe-atlas.info.ucl.ac.be"
-                        ],
-                        "records": {
-                            "ripe-atlas.info.ucl.ac.be": {
-                                "record_type": "A",
-                                "resolved_at": "2024-06-25T12:33:28.507106287Z"
-                            },
-                            "be-lln-as2611-client.anchors.atlas.ripe.net": {
-                                "record_type": "A",
-                                "resolved_at": "2024-07-03T22:41:04.960567124Z"
-                            }
-                        }
-                    },
-                    "last_updated_at": "2024-07-06T07:00:15.468Z"
-                },
-                "zoomeye": {
-                    "error": "No data available"
-                },
-                "nmap": {
-                    "hostnames": [
-                        {
-                            "name": "",
-                            "type": ""
-                        }
-                    ],
-                    "addresses": {
-                        "ipv4": "130.104.228.159"
-                    },
-                    "vendor": {},
-                    "status": {
-                        "state": "up",
-                        "reason": "syn-ack"
-                    },
-                    "tcp": {
-                        "53": {
-                            "state": "open",
-                            "reason": "syn-ack",
-                            "name": "domain",
-                            "product": "RIPE Atlas Anchor",
-                            "version": "0.1",
-                            "extrainfo": "",
-                            "conf": "10",
-                            "cpe": ""
-                        },
-                        "80": {
-                            "state": "open",
-                            "reason": "syn-ack",
-                            "name": "http",
-                            "product": "nginx",
-                            "version": "1.20.1",
-                            "extrainfo": "",
-                            "conf": "10",
-                            "cpe": "cpe:/a:igor_sysoev:nginx:1.20.1"
-                        },
-                        "113": {
-                            "state": "closed",
-                            "reason": "reset",
-                            "name": "ident",
-                            "product": "",
-                            "version": "",
-                            "extrainfo": "",
-                            "conf": "3",
-                            "cpe": ""
-                        },
-                        "443": {
-                            "state": "open",
-                            "reason": "syn-ack",
-                            "name": "http",
-                            "product": "nginx",
-                            "version": "1.20.1",
-                            "extrainfo": "",
-                            "conf": "10",
-                            "cpe": "cpe:/a:igor_sysoev:nginx:1.20.1"
-                        },
-                        "2000": {
-                            "state": "open",
-                            "reason": "syn-ack",
-                            "name": "tcpwrapped",
-                            "product": "",
-                            "version": "",
-                            "extrainfo": "",
-                            "conf": "8",
-                            "cpe": ""
-                        },
-                        "5060": {
-                            "state": "open",
-                            "reason": "syn-ack",
-                            "name": "tcpwrapped",
-                            "product": "",
-                            "version": "",
-                            "extrainfo": "",
-                            "conf": "8",
-                            "cpe": ""
-                        }
-                    }
-                },
-                "whois": {
-                    "domain_name": null,
-                    "registrar": null,
-                    "whois_server": null,
-                    "referral_url": null,
-                    "updated_date": null,
-                    "creation_date": null,
-                    "expiration_date": null,
-                    "name_servers": null,
-                    "status": "LEGACY",
-                    "emails": [
-                        "hostmaster@ripe.net",
-                        "abuse@ripe.net",
-                        "'abuse@uclouvain.be",
-                        "abuse@uclouvain.be"
-                    ],
-                    "dnssec": null,
-                    "name": null,
-                    "org": null,
-                    "address": null,
-                    "city": null,
-                    "state": null,
-                    "registrant_postal_code": null,
-                    "country": null
-                },
-                "geo": {
-                    "latitude": "50.8505",
-                    "longitude": "4.3488"
-                }
-            },
-            "130.104.230.56": {
-                "censys": {
-                    "ip": "130.104.230.56",
-                    "services": [],
-                    "location": {
-                        "continent": "Europe",
-                        "country": "Belgium",
-                        "country_code": "BE",
-                        "city": "Brussels",
-                        "postal_code": "1000",
-                        "timezone": "Europe/Brussels",
-                        "province": "Brussels Capital",
-                        "coordinates": {
-                            "latitude": 50.85045,
-                            "longitude": 4.34878
-                        }
-                    },
-                    "location_updated_at": "2024-07-06T08:21:59.242912508Z",
-                    "autonomous_system": {
-                        "asn": 2611,
-                        "description": "BELNET",
-                        "bgp_prefix": "130.104.0.0/16",
-                        "name": "BELNET",
-                        "country_code": "BE"
-                    },
-                    "autonomous_system_updated_at": "2024-07-06T08:21:59.242912508Z",
-                    "whois": {
-                        "network": {
-                            "handle": "NET-UCLOUVAIN-1",
-                            "name": "Universite Catholique de Louvain",
-                            "cidrs": [
-                                "130.104.0.0/16"
-                            ],
-                            "created": "1970-01-01T00:00:00Z",
-                            "updated": "2021-05-31T00:00:00Z"
-                        },
-                        "organization": {
-                            "handle": "ORG-UCL8-RIPE",
-                            "name": "Universite Catholique de Louvain",
-                            "address": "Universit\u00c3\u00a9 catholique de Louvain\\n1, Place de l'Universit\u00c3\u00a9\\nB-1348 Louvain-la-Neuve\\nBelgique - Belgium",
-                            "abuse_contacts": [
-                                {
-                                    "handle": "UCLA2-RIPE",
-                                    "name": "Universite Catholique de Louvain Abuse Contact",
-                                    "email": "abuse@uclouvain.be"
-                                }
-                            ],
-                            "admin_contacts": [
-                                {
-                                    "handle": "RDG417-RIPE",
-                                    "name": "Raoul De Guchteneere",
-                                    "email": "adminet@uclouvain.be"
-                                }
-                            ]
-                        }
-                    },
-                    "last_updated_at": "2022-04-23T15:46:06.462Z"
-                },
-                "zoomeye": {
-                    "error": "No data available"
-                },
-                "nmap": {
-                    "hostnames": [
-                        {
-                            "name": "",
-                            "type": ""
-                        }
-                    ],
-                    "addresses": {
-                        "ipv4": "130.104.230.56"
-                    },
-                    "vendor": {},
-                    "status": {
-                        "state": "up",
-                        "reason": "echo-reply"
-                    },
-                    "tcp": {
-                        "113": {
-                            "state": "closed",
-                            "reason": "reset",
-                            "name": "ident",
-                            "product": "",
-                            "version": "",
-                            "extrainfo": "",
-                            "conf": "3",
-                            "cpe": ""
-                        },
-                        "2000": {
-                            "state": "open",
-                            "reason": "syn-ack",
-                            "name": "cisco-sccp",
-                            "product": "",
-                            "version": "",
-                            "extrainfo": "",
-                            "conf": "3",
-                            "cpe": ""
-                        },
-                        "5060": {
-                            "state": "open",
-                            "reason": "syn-ack",
-                            "name": "sip",
-                            "product": "",
-                            "version": "",
-                            "extrainfo": "",
-                            "conf": "3",
-                            "cpe": ""
-                        }
-                    }
-                },
-                "whois": {
-                    "domain_name": "ucl.ac.be",
-                    "status": "NOT ALLOWED",
-                    "name": null,
-                    "org": null,
-                    "phone": null,
-                    "fax": null,
-                    "email": null,
-                    "creation_date": null,
-                    "name_servers": null
-                },
-                "geo": {
-                    "latitude": "50.8505",
-                    "longitude": "4.3488"
-                }
-            },
             "10.50.3.9": {
                 "censys": {
                     "ip": "10.50.3.9",
@@ -1585,7 +2022,7 @@
                     "vendor": {},
                     "status": {
                         "state": "up",
-                        "reason": "echo-reply"
+                        "reason": "reset"
                     },
                     "tcp": {
                         "21": {
@@ -1631,284 +2068,12 @@
                     "country": null
                 },
                 "geo": {}
-            },
-            "193.191.3.86": {
-                "censys": {
-                    "ip": "193.191.3.86",
-                    "services": [],
-                    "location": {
-                        "continent": "Europe",
-                        "country": "Belgium",
-                        "country_code": "BE",
-                        "city": "Brussels",
-                        "postal_code": "1000",
-                        "timezone": "Europe/Brussels",
-                        "province": "Brussels Capital",
-                        "coordinates": {
-                            "latitude": 50.85045,
-                            "longitude": 4.34878
-                        }
-                    },
-                    "location_updated_at": "2024-07-06T08:27:34.058391127Z",
-                    "autonomous_system": {
-                        "asn": 2611,
-                        "description": "BELNET",
-                        "bgp_prefix": "193.190.0.0/15",
-                        "name": "BELNET",
-                        "country_code": "BE"
-                    },
-                    "autonomous_system_updated_at": "2024-07-06T08:27:34.058391127Z",
-                    "whois": {
-                        "network": {
-                            "handle": "BELNET-NETWORKS",
-                            "name": "BELNET",
-                            "cidrs": [
-                                "193.191.3.0/24"
-                            ],
-                            "created": "2022-08-17T00:00:00Z",
-                            "updated": "2022-08-17T00:00:00Z"
-                        },
-                        "organization": {
-                            "handle": "ORG-BA5-RIPE",
-                            "name": "BELNET",
-                            "address": "WTC III Simon Bolivarlaan 30 Boulevard Simon Bolivar\\nB-1000\\nBrussel - Bruxelles\\nBELGIUM",
-                            "abuse_contacts": [
-                                {
-                                    "handle": "SST1-RIPE",
-                                    "name": "BELNET Service Support Team",
-                                    "email": "sst@belnet.be"
-                                }
-                            ],
-                            "admin_contacts": [
-                                {
-                                    "handle": "MGT64-RIPE",
-                                    "name": "BELNET - Management",
-                                    "email": "sst@belnet.be"
-                                },
-                                {
-                                    "handle": "NU359-RIPE",
-                                    "name": "BELNET - Networks Unit",
-                                    "email": "sst@belnet.be"
-                                },
-                                {
-                                    "handle": "SSU21-RIPE",
-                                    "name": "BELNET - Services & Security Unit",
-                                    "email": "sst@belnet.be"
-                                }
-                            ]
-                        }
-                    }
-                },
-                "zoomeye": {
-                    "error": "No data available"
-                },
-                "nmap": {},
-                "whois": {
-                    "domain_name": [
-                        "BELNET.NET",
-                        "belnet.net"
-                    ],
-                    "registrar": "Ascio Technologies, Inc",
-                    "whois_server": "whois.ascio.com",
-                    "referral_url": null,
-                    "updated_date": [
-                        "2024-02-12 08:01:37",
-                        "2024-02-12 00:50:41"
-                    ],
-                    "creation_date": [
-                        "1999-02-11 05:00:00",
-                        "1999-02-11 00:00:00"
-                    ],
-                    "expiration_date": [
-                        "2025-02-11 05:00:00",
-                        "2025-02-11 00:00:00"
-                    ],
-                    "name_servers": [
-                        "NS1.BELNET.BE",
-                        "NS2.BELNET.BE",
-                        "NS3.BELNET.BE",
-                        "ns1.belnet.be",
-                        "ns2.belnet.be",
-                        "ns3.belnet.be"
-                    ],
-                    "status": "clientTransferProhibited https://icann.org/epp#clientTransferProhibited",
-                    "emails": "abuse@ascio.com",
-                    "dnssec": "unsigned",
-                    "name": "Not Disclosed",
-                    "org": "Not Disclosed",
-                    "address": "Not Disclosed",
-                    "city": "Not Disclosed",
-                    "state": null,
-                    "registrant_postal_code": "Not Disclosed",
-                    "country": "BE"
-                },
-                "geo": {
-                    "latitude": "50.8505",
-                    "longitude": "4.3488"
-                }
-            },
-            "190.22.160.1": {
-                "censys": {
-                    "ip": "190.22.160.1",
-                    "services": [],
-                    "location": {
-                        "continent": "South America",
-                        "country": "Chile",
-                        "country_code": "CL",
-                        "city": "Santiago",
-                        "postal_code": "8320000",
-                        "timezone": "America/Santiago",
-                        "province": "Santiago Metropolitan",
-                        "coordinates": {
-                            "latitude": -33.45694,
-                            "longitude": -70.64827
-                        }
-                    },
-                    "location_updated_at": "2024-07-06T07:54:58.979677871Z",
-                    "autonomous_system": {
-                        "asn": 7418,
-                        "description": "TELEFONICA CHILE S.A.",
-                        "bgp_prefix": "190.22.0.0/16",
-                        "name": "TELEFONICA CHILE S.A.",
-                        "country_code": "CL"
-                    },
-                    "autonomous_system_updated_at": "2024-07-06T07:54:58.979677871Z",
-                    "whois": {
-                        "network": {
-                            "handle": "TCS5",
-                            "name": "Movistar Fibra",
-                            "cidrs": [
-                                "190.22.128.0/18"
-                            ],
-                            "created": "2020-02-07T00:00:00Z",
-                            "updated": "2020-02-06T00:00:00Z"
-                        }
-                    },
-                    "last_updated_at": "2022-03-20T06:02:06.005Z"
-                },
-                "zoomeye": {
-                    "error": "No data available"
-                },
-                "nmap": {
-                    "hostnames": [
-                        {
-                            "name": "",
-                            "type": ""
-                        }
-                    ],
-                    "addresses": {
-                        "ipv4": "190.22.160.1"
-                    },
-                    "vendor": {},
-                    "status": {
-                        "state": "up",
-                        "reason": "echo-reply"
-                    },
-                    "tcp": {
-                        "22": {
-                            "state": "filtered",
-                            "reason": "no-response",
-                            "name": "ssh",
-                            "product": "",
-                            "version": "",
-                            "extrainfo": "",
-                            "conf": "3",
-                            "cpe": ""
-                        }
-                    }
-                },
-                "whois": {
-                    "domain_name": null,
-                    "registrar": null,
-                    "whois_server": null,
-                    "referral_url": null,
-                    "updated_date": null,
-                    "creation_date": null,
-                    "expiration_date": null,
-                    "name_servers": null,
-                    "status": "reallocated",
-                    "emails": [
-                        "abuse@lacnic.net",
-                        "whois-contact@lacnic.net",
-                        "tecnical.isp.movistar@gmail.com"
-                    ],
-                    "dnssec": null,
-                    "name": null,
-                    "org": null,
-                    "address": null,
-                    "city": null,
-                    "state": null,
-                    "registrant_postal_code": null,
-                    "country": null
-                },
-                "geo": {
-                    "latitude": "-33.4569",
-                    "longitude": "-70.6483"
-                }
-            },
-            "10.50.3.22": {
-                "censys": {
-                    "ip": "10.50.3.22",
-                    "services": []
-                },
-                "zoomeye": {
-                    "error": "No data available"
-                },
-                "nmap": {
-                    "hostnames": [
-                        {
-                            "name": "",
-                            "type": ""
-                        }
-                    ],
-                    "addresses": {
-                        "ipv4": "10.50.3.22"
-                    },
-                    "vendor": {},
-                    "status": {
-                        "state": "up",
-                        "reason": "echo-reply"
-                    },
-                    "tcp": {
-                        "179": {
-                            "state": "open",
-                            "reason": "syn-ack",
-                            "name": "bgp",
-                            "product": "",
-                            "version": "",
-                            "extrainfo": "open",
-                            "conf": "10",
-                            "cpe": ""
-                        }
-                    }
-                },
-                "whois": {
-                    "domain_name": null,
-                    "registrar": null,
-                    "whois_server": null,
-                    "referral_url": null,
-                    "updated_date": null,
-                    "creation_date": null,
-                    "expiration_date": null,
-                    "name_servers": null,
-                    "status": null,
-                    "emails": "abuse@iana.org",
-                    "dnssec": null,
-                    "name": null,
-                    "org": null,
-                    "address": null,
-                    "city": null,
-                    "state": null,
-                    "registrant_postal_code": null,
-                    "country": null
-                },
-                "geo": {}
             }
         },
         "ping": {
-            "avg_latency": 220.99900000000002,
-            "jitter_max": 229.6,
-            "jitter_min": 220.0
+            "avg_latency": 3.5745999999999998,
+            "jitter_max": 5.81,
+            "jitter_min": 2.5
         }
     }
 }
