@@ -46,7 +46,7 @@ MAX_PROBES = 10
 TTL_START = 1
 MAX_HOPS = 30
 TIMEOUT = 2
-INTERVAL = 300  # Intervalo entre modalidades (ICMP, UDP y TCP)
+INTERVAL = 10  # Intervalo entre modalidades (ICMP, UDP y TCP)
 PORT_RANGE_START = 33434
 max_ttl = 30  # Máximo número de saltos
 probes_per_ttl = 3  # Número de probes por cada TTL
@@ -326,7 +326,7 @@ def parse_ping_output(response):
 def get_censys_data(ip):
     try:
         time.sleep(1)
-        h = CensysHosts(api_id="82f81318-4fb1-42f8-8a59-43979db83b4e", api_secret="bTgKqL1WoQo6s5Ayc8FDmhRpD82Ca2tl")
+        h = CensysHosts(api_id="8cb5cdc8-6370-42a1-8892-f5a53832b075", api_secret="Vg2oMpKPrEu91s3kQlVyYM5GTxpdS5dA")
         host = h.view(ip)
         return host
     except Exception as e:
@@ -439,11 +439,15 @@ def calculate_all_routes_with_nulls(routes, connections):
     return all_routes
 
 
+def normalize_value(value, min_value, max_value):
+    if max_value - min_value == 0:
+        return 0
+    return (value - min_value) / (max_value - min_value)
+
 def calculate_route_diversity(routes, connections, osint_results):
     if not routes:
-        return "nulo"
+        return 0
 
-    # Calcular la distancia de Levenshtein entre todas las rutas posibles
     all_possible_routes = calculate_all_routes_with_nulls(routes, connections)
     lev_distances = []
     for i in range(len(all_possible_routes)):
@@ -451,93 +455,44 @@ def calculate_route_diversity(routes, connections, osint_results):
             lev_distances.append(levenshtein_distance(all_possible_routes[i], all_possible_routes[j]))
 
     avg_lev_distance = sum(lev_distances) / len(lev_distances) if lev_distances else 0
-    print("Distancias de levenshtein: ",lev_distances)
-    # Calcular el número de saltos (TTL máximo alcanzado)
-    max_hop_count = max(len(route) for route in all_possible_routes) if all_possible_routes else 0
 
-    # Calcular el balanceo de carga
+    # Calcular max_hop_count considerando los nodos con información y excluyendo los nulos
+    hop_counts_with_info = [len(route["hops"]) for route in routes if route["hops"]]
+    max_hop_count_with_info = len(hop_counts_with_info)
+
+    # Ajustar max_lev_distance excluyendo los nodos nulos
+    max_hop_count = max(len(route) for route in all_possible_routes) if all_possible_routes else 0
+    max_lev_distance = max_hop_count - 2 - sum(1 for route in all_possible_routes if None in route)
+
     load_balancing = len(all_possible_routes)
 
-    # Calcular la diversidad de dispositivos
     device_types = set()
     for ip in osint_results:
         nmap_data = osint_results[ip].get("nmap", {})
         open_ports = nmap_data.get("tcp", {}).keys()
         device_type = identify_device(open_ports)
-        print("Tipo de dispositivo: ", device_type)
         if device_type:
             device_types.add(device_type)
 
     device_diversity = len(device_types)
 
-    # Calcular la información geográfica
-    countries = set()
-    for ip in osint_results:
-        censys_data = osint_results[ip].get("censys", {}).get("location", {})
-        country = censys_data.get("country")
-        if country:
-            countries.add(country)
-    geo_diversity = len(countries)
+    # Definición de los valores mínimos y máximos
+    min_lev_distance = 0
+    min_hop_count = 1
+    max_device_diversity = 5
+    min_device_diversity = 1
 
-    # Determinar la diversidad de rutas
-    diversity = "nulo"
-    metrics_met = {
-        "avg_lev_distance": avg_lev_distance,
-        "max_hop_count": max_hop_count,
-        "load_balancing": load_balancing,
-        "device_diversity": device_diversity
-    }
+    # Normalización de cada métrica
+    norm_lev_distance = normalize_value(avg_lev_distance, min_lev_distance, max_lev_distance)
+    norm_hop_count = normalize_value(max_hop_count_with_info, min_hop_count, max_hop_count)
+    norm_device_diversity = normalize_value(device_diversity, min_device_diversity, max_device_diversity)
 
-    if avg_lev_distance <= 2 and max_hop_count >= 8 and load_balancing >= 2 and device_diversity >= 1:
-        diversity = "bajo"
-    elif 3 <= avg_lev_distance <= 3 and max_hop_count >= 12 and load_balancing >= 5 and device_diversity >= 3:
-        diversity = "medio"
-    elif avg_lev_distance <= 5  and max_hop_count > 12 and load_balancing > 8 and device_diversity > 4:
-        diversity = "alto"
+    # Cálculo del índice de diversidad
+    diversity_index = 0.5 * norm_lev_distance + 0.25 * norm_hop_count + 0.25 * norm_device_diversity
 
-    missing_criteria = 0
+    print("Maximo salto: ", max_hop_count, " - max_lev_distance: ",max_lev_distance," - Normalizados lev: ", norm_lev_distance, " norm_hop_count ", norm_hop_count, " norm_device_diversity ", norm_device_diversity)
 
-    if diversity == "bajo":
-        if not (3 <= avg_lev_distance <= 5):
-            missing_criteria += 1
-        if max_hop_count < 12:
-            missing_criteria += 1
-        if load_balancing < 5:
-            missing_criteria += 1
-        if device_diversity < 3:
-            missing_criteria += 1
-    elif diversity == "medio":
-        if avg_lev_distance <= 5:
-            missing_criteria += 1
-        if max_hop_count <= 12:
-            missing_criteria += 1
-        if load_balancing <= 8:
-            missing_criteria += 1
-        if device_diversity <= 4:
-            missing_criteria += 1
-    elif diversity == "nulo":
-        if not (avg_lev_distance <= 2):
-            missing_criteria += 1
-        if max_hop_count < 8:
-            missing_criteria += 1
-        if load_balancing < 2:
-            missing_criteria += 1
-        if device_diversity < 1:
-            missing_criteria += 1
-
-    if missing_criteria == 1:
-        if diversity == "nulo":
-            if geo_diversity >= 2:
-                diversity = "bajo"
-        elif diversity == "bajo":
-            if geo_diversity >= 4:
-                diversity = "medio"
-        elif diversity == "medio":
-            if geo_diversity >= 6:
-                diversity = "alto"
-
-    print("Distancia leven: ", avg_lev_distance, " - max_hop_count: ", max_hop_count, " - load_balancing: ", load_balancing, " - device_diversity: ", device_diversity, " - geo_diversity: ", geo_diversity, " - missing_criteria: ", missing_criteria)
-    return diversity
+    return diversity_index
 
 def levenshtein_distance(route1, route2):
     if len(route1) < len(route2):
@@ -559,7 +514,6 @@ def levenshtein_distance(route1, route2):
     return previous_row[-1]
 
 def identify_device(open_ports):
-    # Ejemplo de identificación de dispositivos basada en puertos abiertos
     if 22 in open_ports:
         return "SSH Server"
     elif 80 in open_ports or 443 in open_ports:
@@ -572,6 +526,7 @@ def identify_device(open_ports):
         return "Telnet Server"
     else:
         return "Unknown"
+
 
 def is_connected(src, dst):
     pkt = IP(dst=dst) / ICMP()  # Crea un paquete ICMP (ping) hacia dst

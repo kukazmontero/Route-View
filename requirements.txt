@@ -1,0 +1,10 @@
+censys==2.2.12
+Flask==3.0.3
+folium==0.17.0
+python-dotenv==1.0.1
+python_nmap==0.7.1
+python_whois==0.9.4
+pythonping==1.1.4
+Requests==2.32.3
+scapy==2.5.0
+zoomeye==2.2.0
