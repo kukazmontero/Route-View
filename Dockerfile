@@ -15,7 +15,8 @@ RUN pip install --no-cache-dir python-nmap
 RUN pip install --no-cache-dir python-whois
 RUN pip install --no-cache-dir python-dotenv
 RUN pip install --no-cache-dir pythonping
-RUN pip install --no-cache-dir CensysSearch
+RUN pip install --no-cache-dir censys
+RUN pip install --no-cache-dir folium
 
 # Exponer el puerto 5000 para Flask
 EXPOSE 5000
