@@ -14,7 +14,7 @@ Clonar el repositorio
 Ingresamos al proyecto
 
 ```
-  cd \Route-View
+  cd .\Route-View\  
 ```
 
 Instalamos las librerías necesarias
