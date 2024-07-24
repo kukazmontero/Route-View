@@ -1,0 +1,9 @@
+Flask
+requests
+scapy
+python-nmap
+python-whois
+python-dotenv
+pythonping
+censys
+folium
