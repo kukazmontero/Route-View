@@ -9,7 +9,15 @@ Clonar el repositorio
 Instalar librerías
 
 ```
-  pip install -r requirements.txt
+ pip install Flask
+ pip install requests
+ pip install scapy
+ pip install python-nmap
+ pip install python-whois
+ pip install python-dotenv
+ pip install pythonping
+ pip install censys
+ pip install folium
 ```
 
 Ejecutar la herramienta
