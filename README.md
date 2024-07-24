@@ -1,23 +1,26 @@
 Pasos para ejecutar Route-View
 
+Instalar Nmap 
+
+https://nmap.org/download.html
+
+
 Clonar el repositorio
 
 ```
   git clone https://github.com/kukazmontero/Route-View.git
 ```
 
-Instalar librerías
+Ingresamos al proyecto
 
 ```
- pip install Flask
- pip install requests
- pip install scapy
- pip install python-nmap
- pip install python-whois
- pip install python-dotenv
- pip install pythonping
- pip install censys
- pip install folium
+  cd \Route-View
+```
+
+Instalamos las librerías necesarias
+
+```
+ pip install -r requirements.txt
 ```
 
 Ejecutar la herramienta
