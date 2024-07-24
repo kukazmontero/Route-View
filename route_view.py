@@ -12,7 +12,6 @@ import whois
 import subprocess
 from censys.search import CensysHosts
 from dotenv import load_dotenv
-from zoomeye.sdk import ZoomEye
 from datetime import datetime
 import math
 import random
@@ -20,18 +19,12 @@ from pythonping import ping
 from collections import defaultdict
 
 
-# Configuración para utilizar api.zoomeye.hk
-class CustomZoomEye(ZoomEye):
-    def __init__(self, api_key=None):
-        super().__init__(api_key)
-        self.api_base = "https://api.zoomeye.hk"
 
 # Cargar variables de entorno
 # load_dotenv()
 
 # Configuración de credenciales
-ZOOMEYE_API_KEY = os.getenv('36D9F177-4798-977ca-3068-372ffa313cd')
-# IPINFO_ACCESS_TOKEN = os.getenv('f6b8889a44e63b')
+# IPINFO_ACCESS_TOKEN = os.getenv('')
 
 # Configuración de argumentos
 parser = argparse.ArgumentParser(description="Script para replicar el algoritmo MDA de Scamper usando Scapy")
@@ -333,45 +326,6 @@ def get_censys_data(ip):
         print(f"Error obteniendo datos de Censys para IP {ip}: {e}")
         return {}
 
-# Función para obtener datos de ZoomEye usando el comando CLI
-def get_zoomeye_data(ip):
-    try:
-        result = subprocess.run(["zoomeye", "ip", ip], capture_output=True, text=True)
-        return parse_zoomeye_output(result.stdout)
-    except Exception as e:
-        print(f"Error obteniendo datos de ZoomEye para IP {ip}: {e}")
-        return {}
-
-# Función para parsear la salida de ZoomEye
-def parse_zoomeye_output(output):
-    lines = output.splitlines()
-    if not lines or "Hostnames" not in lines[1]:
-        return {"error": "No data available"}
-
-    data = {
-        "Hostnames": lines[1].split(":")[1].strip(),
-        "Isp": lines[2].split(":")[1].strip(),
-        "Country": lines[3].split(":")[1].strip(),
-        "City": lines[4].split(":")[1].strip(),
-        "Organization": lines[5].split(":")[1].strip(),
-        "Lastupdated": lines[6].split(":")[1].strip(),
-        "Number of open ports": lines[7].split(":")[1].strip(),
-        "Ports": []
-    }
-
-    for line in lines[10:]:
-        parts = line.split()
-        if len(parts) >= 4:
-            port_info = {
-                "port": parts[0],
-                "service": parts[1],
-                "app": parts[2],
-                "banner": " ".join(parts[3:])
-            }
-            data["Ports"].append(port_info)
-
-    return data
-
 # Funciones para OSINT infraestructura
 def get_nmap_data(ip):
     try:
@@ -399,13 +353,11 @@ def get_osint_data(ip_list):
         try:
             print("Osint de ", ip)
             censys_data = get_censys_data(ip)
-            zoomeye_data = get_zoomeye_data(ip)
             nmap_data = get_nmap_data(ip)
             whois_data = get_whois_data(ip)
             geo_info[ip] = get_geo_info(ip)
             osint_results[ip] = {
                 "censys": censys_data,
-                "zoomeye": zoomeye_data,
                 "nmap": nmap_data,
                 "whois": whois_data,
                 "geo": geo_info[ip]
@@ -516,10 +468,8 @@ def levenshtein_distance(route1, route2):
 def identify_device(open_ports):
     if 22 in open_ports:
         return "SSH Server"
-    elif 80 in open_ports or 443 in open_ports:
-        return "Web Server"
-    elif 21 in open_ports:
-        return "FTP Server"
+    elif 179 in open_ports:
+        return "BGP Server"
     elif 53 in open_ports:
         return "DNS Server"
     elif 23 in open_ports:
@@ -533,20 +483,7 @@ def is_connected(src, dst):
     resp = sr1(pkt, timeout=5, verbose=False)  # Incrementa el tiempo de espera
     return resp is not None  # Devuelve True si hay respuesta, False si no
 
-def calculate_attr(nodes):
-    # Generar todas las combinaciones posibles de pares de nodos
-    pairs = list(itertools.combinations(nodes, 2))
 
-    # Contar los pares conectados
-    connected_pairs = 0
-    for src, dst in pairs:
-        if is_connected(src, dst) and is_connected(dst, src):
-            connected_pairs += 1
-
-    # Calcular el ATTR
-    total_pairs = len(pairs)
-    attr = connected_pairs / total_pairs if total_pairs > 0 else 0  # Calcula el ATTR como la fracción de pares conectados
-    return attr
 
 def get_ip_from_domain(domain):
     try:
@@ -595,14 +532,10 @@ if __name__ == "__main__":
         
         route_diversity = calculate_route_diversity(best_result["routes"], best_result["connections"], osint_results)
 
-        # Calcular el ATTR para los nodos en `best_result["routes"]`
-        nodes = list(unique_ips)
-        attr = calculate_attr(nodes)
 
         best_result["all_possible_routes"] = all_possible_routes
         results["best_result"]["load_balancing"] = load_balancing
         results["best_result"]["route_diversity"] = route_diversity
-        #results["best_result"]["attr"] = attr
 
         results["osint"] = osint_results
         results["ping"] = ping_results

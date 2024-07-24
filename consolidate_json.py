@@ -46,7 +46,6 @@ def consolidate_osint_data(ip, osint_data):
     consolidated_data["whois"] = {
         "domain_name": whois_info.get("domain_name"),
         "registrar": whois_info.get("registrar"),
-        "whois_server": whois_info.get("whois_server"),
         "referral_url": whois_info.get("referral_url"),
         "updated_date": whois_info.get("updated_date"),
         "creation_date": whois_info.get("creation_date"),
@@ -64,10 +63,6 @@ def consolidate_osint_data(ip, osint_data):
         "country": whois_info.get("country")
     }
 
-    # Información de ZoomEye
-    zoomeye_info = osint_data.get("zoomeye", {})
-    if "error" not in zoomeye_info:
-        consolidated_data["zoomeye"] = zoomeye_info
 
     return consolidated_data
 
