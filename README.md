@@ -20,7 +20,7 @@ Ingresamos al proyecto
 Instalamos las librerías necesarias
 
 ```
- pip install -r requirements.txt
+ pip install -r .\requirements.txt    
 ```
 
 Ejecutar la herramienta
