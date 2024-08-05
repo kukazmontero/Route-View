@@ -319,7 +319,7 @@ def parse_ping_output(response):
 def get_censys_data(ip):
     try:
         time.sleep(1)
-        h = CensysHosts(api_id="8cb5cdc8-6370-42a1-8892-f5a53832b075", api_secret="Vg2oMpKPrEu91s3kQlVyYM5GTxpdS5dA")
+        h = CensysHosts(api_id="ab2371fb-5c3b-4d98-a7df-8aa188f5af94", api_secret="jSg7YIhAhJorC6pQxAFevyyCSpMIWeyG")
         host = h.view(ip)
         return host
     except Exception as e:
@@ -442,6 +442,9 @@ def calculate_route_diversity(routes, connections, osint_results):
     # Cálculo del índice de diversidad
     diversity_index = 0.5 * norm_lev_distance + 0.25 * norm_hop_count + 0.25 * norm_device_diversity
 
+    diversity_index = max(diversity_index, 0)
+    diversity_index = round(diversity_index, 5)
+    
     print("Maximo salto: ", max_hop_count, " - max_lev_distance: ",max_lev_distance," - Normalizados lev: ", norm_lev_distance, " norm_hop_count ", norm_hop_count, " norm_device_diversity ", norm_device_diversity)
 
     return diversity_index
