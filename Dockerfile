@@ -1,25 +1,24 @@
-# Usar una imagen base de Python
-FROM python:3.9-slim
+FROM python:3
 
-# Establecer el directorio de trabajo
-WORKDIR /app
+# Establece el directorio de trabajo
+WORKDIR .
 
-# Copiar el resto de los archivos de la aplicación al contenedor
+# Instala Nmap y otras dependencias necesarias
+RUN apt-get update && \
+    apt-get install -y nmap && \
+    apt-get clean
+
+# Copia el archivo de requisitos
+COPY requirements.txt .
+
+# Instala las dependencias
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copia el código fuente de la aplicación
 COPY . .
 
-# Instalar las dependencias individualmente
-RUN pip install --no-cache-dir Flask
-RUN pip install --no-cache-dir requests
-RUN pip install --no-cache-dir scapy
-RUN pip install --no-cache-dir python-nmap
-RUN pip install --no-cache-dir python-whois
-RUN pip install --no-cache-dir python-dotenv
-RUN pip install --no-cache-dir pythonping
-RUN pip install --no-cache-dir censys
-RUN pip install --no-cache-dir folium
-
-# Exponer el puerto 5000 para Flask
+# Expone el puerto en el que Flask estará escuchando
 EXPOSE 5000
 
-# Comando para ejecutar la aplicación Flask
+# Comando para iniciar la aplicación
 CMD ["python", "app.py"]
