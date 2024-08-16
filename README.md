@@ -11,21 +11,21 @@ Primero, necesitas tener Docker instalado en tu sistema. Puedes descargar e inst
 Clona el repositorio de Route-View usando Git. Abre una terminal y ejecuta el siguiente comando:
 
 ```
-  git clone https://github.com/kukazmontero/Route-View.git
+git clone https://github.com/kukazmontero/Route-View.git
 ```
 ## 3. Construir la Imagen Docker
 
 Navega al directorio del repositorio clonado y crea la imagen de Docker para Route-View. Asegúrate de tener permisos de administrador y ejecuta el siguiente comando:
 
 ```
-     docker build -t route .
+docker build -t route .
 ```
 ## 4. Ejecutar el Contenedor
 
 Finalmente, ejecuta el proyecto en un contenedor Docker con los permisos de red necesarios. Usa el siguiente comando:
 
 ```
-     docker run --rm -it --network host --cap-add NET_ADMIN --cap-add NET_RAW route
+docker run --rm -it --network host --cap-add NET_ADMIN --cap-add NET_RAW route
 ```
 
 	
