@@ -1,32 +1,13 @@
 Pasos para ejecutar Route-View
 
-Instalar Nmap 
-
-https://nmap.org/download.html
-
-
-Clonar el repositorio
+Desde una terminal con permisos de administrador, generamos la imagen de docker
 
 ```
-  git clone https://github.com/kukazmontero/Route-View.git
+  docker build -t route .
 ```
 
-Ingresamos al proyecto
+EJecutamos el proyecto con los permisos de red necesarios
 
 ```
-  cd .\Route-View\  
+  docker run --rm -it --network host --cap-add NET_ADMIN --cap-add NET_RAW route  
 ```
-
-Instalamos las librerías necesarias
-
-```
- pip install -r .\requirements.txt    
-```
-
-Ejecutar la herramienta
-
-```
-  python .\app.py
-```
-
-	
