@@ -77,25 +77,8 @@ def create_map(data, selected_route, output_file):
     m.save(output_file)
 
 if __name__ == "__main__":
-    try:
-        # Abrir el archivo JSON con los datos
-        with open('output/consolidated_output.json', 'r') as f:
-            data = json.load(f)
-        
-        # Cargar la ruta seleccionada desde los argumentos
-        if len(sys.argv) > 2:
-            selected_route = json.loads(sys.argv[1])
-        else:
-            selected_route = []  # O manejar según sea necesario
-        
-        # Especificar el archivo de salida para el mapa
-        output_file = sys.argv[2] if len(sys.argv) > 2 else 'map_output.html'
-        
-        # Crear el mapa
-        create_map(data, selected_route, output_file)
-    except json.JSONDecodeError as e:
-        print(f"Error al decodificar JSON: {e}")
-    except FileNotFoundError as e:
-        print(f"Archivo no encontrado: {e}")
-    except Exception as e:
-        print(f"Se produjo un error: {e}")
+    with open(sys.argv[1], 'r') as f:
+        data = json.load(f)
+    selected_route = json.loads(sys.argv[2])
+    output_file = sys.argv[3]
+    create_map(data, selected_route, output_file)

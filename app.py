@@ -16,17 +16,22 @@ def index():
         # Ejecutar el script principal
         subprocess.run([sys.executable, 'route_view.py', '-t', target, '-o', 'output.json'])
 
+        try:
+            subprocess.run([sys.executable, 'generate_map.py', 'output/consolidated_output.json', 'static/generated_map.html'])
+        except Exception as e:
+            return jsonify({"status": "error", "message": str(e)}), 500
+    
+
         return render_template('resultados.html')
     
     return render_template('index.html')
 
 @app.route('/resultados', methods=['GET'])
 def resultados():
-    if not os.path.exists('static/generated_map.html'):
-        try:
-            subprocess.run([sys.executable, 'generate_map.py', 'output/consolidated_output.json', 'static/generated_map.html'])
-        except Exception as e:
-            return jsonify({"status": "error", "message": str(e)}), 500
+    try:
+        subprocess.run([sys.executable, 'generate_map.py', 'output/consolidated_output.json', 'static/generated_map.html'])
+    except Exception as e:
+        return jsonify({"status": "error", "message": str(e)}), 500
     
     return render_template('resultados.html')
 
