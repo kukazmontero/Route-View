@@ -22,7 +22,7 @@ docker build -t route .
 ```
 ## 4. Ejecutar el Contenedor
 
-Finalmente, ejecuta el proyecto en un contenedor Docker con los permisos de red necesarios. Usa el siguiente comando:
+Finalmente, ejecuta el proyecto con permisos de administrador en un contenedor Docker, asegurándote de otorgar los permisos de red necesarios. Utiliza el siguiente comando:
 
 ```
 docker run --rm -it --network host --cap-add NET_ADMIN --cap-add NET_RAW route
