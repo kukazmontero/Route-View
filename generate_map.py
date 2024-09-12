@@ -3,11 +3,18 @@ import folium
 import sys
 from collections import defaultdict
 
-def create_map(data, selected_route, output_file):
+def create_map(data, output_file):
     target_ip = list(data.keys())[0]
+    best_result = data[target_ip]['best_result']
     ip_info = data[target_ip]['osint']
-    
-    # Calculate the center of the map
+
+    # Extraer la primera ruta posible
+    if 'all_possible_routes' in best_result and best_result['all_possible_routes']:
+        selected_route = best_result['all_possible_routes'][0]
+    else:
+        selected_route = []
+
+    # Calcular el centro del mapa
     latitudes = []
     longitudes = []
     for ip, info in ip_info.items():
@@ -24,10 +31,10 @@ def create_map(data, selected_route, output_file):
     else:
         map_center = [0, 0]
 
-    # Create the map
+    # Crear el mapa
     m = folium.Map(location=map_center, zoom_start=2)
 
-    # Group IPs by location
+    # Agrupar IPs por localización
     location_groups = defaultdict(list)
     for ip, info in ip_info.items():
         try:
@@ -37,7 +44,7 @@ def create_map(data, selected_route, output_file):
         except (TypeError, ValueError):
             continue
 
-    # Add nodes to the map based on the selected route
+    # Añadir los nodos en base a la ruta seleccionada
     for lat_lon, ips in location_groups.items():
         lat, lon = lat_lon
         popup_info = ""
@@ -52,11 +59,10 @@ def create_map(data, selected_route, output_file):
                 icon=folium.Icon(color='blue')
             ).add_to(m)
 
-    # Add connections for the selected route
-    selected_route_ips = [ip for ip in selected_route if ip in ip_info]
-    for i in range(len(selected_route_ips) - 1):
-        start_ip = selected_route_ips[i]
-        end_ip = selected_route_ips[i + 1]
+    # Añadir conexiones de la ruta seleccionada
+    for i in range(len(selected_route) - 1):
+        start_ip = selected_route[i]
+        end_ip = selected_route[i + 1]
         if start_ip in ip_info and end_ip in ip_info:
             try:
                 start_lat = float(ip_info[start_ip]['latitude'])
@@ -73,12 +79,11 @@ def create_map(data, selected_route, output_file):
             except (TypeError, ValueError):
                 continue
 
-    # Save the map
+    # Guardar el mapa
     m.save(output_file)
 
 if __name__ == "__main__":
     with open(sys.argv[1], 'r') as f:
         data = json.load(f)
-    selected_route = json.loads(sys.argv[2])
-    output_file = sys.argv[3]
-    create_map(data, selected_route, output_file)
+    output_file = sys.argv[2]
+    create_map(data, output_file)
